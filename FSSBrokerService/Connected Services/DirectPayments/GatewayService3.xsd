@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AS.FSS.Gateway.DataAccess.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AS.FSS.Gateway.DataAccess.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://docs.fss.ru/ExtService/GatewayService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="DateFilter">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Day">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TwoDays">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Week">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Month">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">31</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Year">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">365</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TwoYear">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">730</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ThreeYear">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1095</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DateFilter" nillable="true" type="tns:DateFilter" />
+  <xs:complexType name="ArrayOfUPLOADS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UPLOADS" nillable="true" type="tns:UPLOADS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUPLOADS" nillable="true" type="tns:ArrayOfUPLOADS" />
+  <xs:complexType name="UPLOADS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CERT_DATA" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="CNT_LN_PROCEED" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CNT_LN_VALID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CR_DATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EXT_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FILE_DATA_SIGNED" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FILE_FILENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FILE_TICKET" nillable="true" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="FILE_TICKET_ENC" nillable="true" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="FSS_ERROR" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LAST_EXCEPTION" nillable="true" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MD_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="STATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STATE_ID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UPLOADS" nillable="true" type="tns:UPLOADS" />
+</xs:schema>

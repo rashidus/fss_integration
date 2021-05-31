@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.fss.ru/integration/types/identityDocument/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/identityDocument/v01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="codeType" type="code" />
+  <xs:element name="identityDocument" type="identityDocument" />
+  <xs:complexType name="identityDocument">
+    <xs:annotation>
+      <xs:documentation>Удостоверение личности</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="codeType" type="code" />
+      <xs:element minOccurs="1" maxOccurs="1" name="number" type="number" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="number">
+    <xs:annotation>
+      <xs:documentation>Номер удостоверения личности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="code">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="-1">
+        <xs:annotation>
+          <xs:documentation>Не определено</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Паспорт гражданина СССР</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Загранпаспорт гражданина СССР</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.fss.ru/integration/types/dic/fault/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/dic/fault/v01" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="FaultCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="E_0000" />
+      <xs:enumeration value="E_0100" />
+      <xs:enumeration value="E_0200" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

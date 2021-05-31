@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:p="http://www.fss.ru/integration/types/person/v01" xmlns:org="http://www.fss.ru/integration/types/organization/v01" xmlns:tns="http://www.fss.ru/integration/types/eln/ins/v01" xmlns:com="http://www.fss.ru/integration/types/eln/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/eln/ins/v01" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Organization.xsd" namespace="http://www.fss.ru/integration/types/organization/v01" />
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Person.xsd" namespace="http://www.fss.ru/integration/types/person/v01" />
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Eln.xsd" namespace="http://www.fss.ru/integration/types/eln/v01" />
+  <xs:element name="getPrivateLNDataRequest" type="tns:GetPrivateLNDataRequest" />
+  <xs:element name="getPrivateLNDataResponse" type="tns:GetPrivateLNDataResponse" />
+  <xs:element name="prParseReestrFileRequest" type="tns:PrParseReestrFileRequest" />
+  <xs:element name="prParseReestrFileResponse" type="tns:PrParseReestrFileResponse" />
+  <xs:complexType name="PrParseReestrFileRequest">
+    <xs:sequence>
+      <xs:element name="request" type="tns:PrParseReestrFileType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PrParseReestrFileResponse">
+    <xs:annotation>
+      <xs:documentation>Ответ на отпраку реестра ЭЛН</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="wsResult" type="com:WSResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetPrivateLNDataRequest">
+    <xs:annotation>
+      <xs:documentation>Запрос ЭЛН</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="regNum" type="org:regNum" />
+      <xs:element name="lnCode" type="com:lnCode" />
+      <xs:element name="snils" type="p:snils" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetPrivateLNDataResponse">
+    <xs:sequence>
+      <xs:element name="fileOperationsLnUserGetPrivateLNDataOut" type="tns:FileOperationsLnUserGetLNDataOut" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FileOperationsLnUserGetLNDataOut">
+    <xs:annotation>
+      <xs:documentation>Ответ на запрос ЭЛН</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="com:WSResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="data" type="tns:Data" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PrParseReestrFileType">
+    <xs:annotation>
+      <xs:documentation>Отправка реестра ЭЛН</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="regNum" type="org:regNum" />
+      <xs:element name="pXmlFile" type="tns:RowsetWrapper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RowsetWrapper">
+    <xs:sequence>
+      <xs:element name="rowset" type="tns:Rowset" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Rowset">
+    <xs:annotation>
+      <xs:documentation>Отправляемые данные листка нетрудоспособности - метод PrParseReestrFile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="30" name="row">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="lnCode" type="com:lnCode" />
+            <xs:element name="snils" type="p:snils" />
+            <xs:element minOccurs="0" name="innPerson" type="p:inn" />
+            <xs:element name="employer" type="com:employer" />
+            <xs:element name="emplFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" name="emplRegNo" type="org:regNum" />
+            <xs:element name="emplParentNo" type="xs:string" />
+            <xs:element minOccurs="0" name="emplRegNo2" type="org:regNum" />
+            <xs:element name="approve1" type="xs:string" />
+            <xs:element minOccurs="0" name="approve2" type="xs:string" />
+            <xs:element minOccurs="0" name="baseAvgSal" type="xs:double" />
+            <xs:element minOccurs="0" name="baseAvgDailySal" type="xs:double" />
+            <xs:element name="insurYy" nillable="true" type="xs:int" />
+            <xs:element name="insurMm" nillable="true" type="xs:int" />
+            <xs:element name="notInsurYy" nillable="true" type="xs:int" />
+            <xs:element name="notInsurMm" nillable="true" type="xs:int" />
+            <xs:element minOccurs="0" name="calcCondition1" type="com:dictCode" />
+            <xs:element minOccurs="0" name="calcCondition2" type="com:dictCode" />
+            <xs:element minOccurs="0" name="calcCondition3" type="com:dictCode" />
+            <xs:element minOccurs="0" name="calcCondition4" type="com:dictCode" />
+            <xs:element name="form1Dt" nillable="true" type="com:simpleDate" />
+            <xs:element name="returnDateEmpl" nillable="true" type="com:simpleDate" />
+            <xs:element name="dt1Ln" nillable="true" type="com:simpleDate" />
+            <xs:element name="dt2Ln" nillable="true" type="com:simpleDate" />
+            <xs:element minOccurs="0" name="emplPayment" type="xs:double" />
+            <xs:element minOccurs="0" name="fssPayment" type="xs:double" />
+            <xs:element minOccurs="0" name="payment" type="xs:double" />
+            <xs:element minOccurs="0" name="correctionReason" type="xs:string" />
+            <xs:element minOccurs="0" name="correctionNote" type="com:correctionNote" />
+          </xs:all>
+          <xs:attribute ref="com:Id" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute ref="com:version" />
+    <xs:attribute ref="com:software" />
+    <xs:attribute ref="com:version_software" />
+    <xs:attribute ref="com:author" />
+    <xs:attribute ref="com:phone" />
+    <xs:attribute ref="com:email" />
+  </xs:complexType>
+  <xs:complexType name="OutRowset">
+    <xs:sequence>
+      <xs:element maxOccurs="1" name="responseRow" type="tns:ResponseRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResponseRow">
+    <xs:annotation>
+      <xs:documentation>Входящие данные листка нетрудоспособности - метод GetPrivateLNData</xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="snils" type="p:snils" />
+      <xs:element name="surname" type="com:surname" />
+      <xs:element name="name" type="com:name" />
+      <xs:element minOccurs="0" name="patronymic" type="com:patronymic" />
+      <xs:element name="lnCode" type="com:lnCode" />
+      <xs:element minOccurs="0" name="prevLnCode" type="com:lnCode" />
+      <xs:element name="primaryFlag" type="xs:boolean" />
+      <xs:element name="duplicateFlag" type="xs:boolean" />
+      <xs:element name="lnDate" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="idMo" type="xs:string" />
+      <xs:element name="lpuName" type="com:lpuName" />
+      <xs:element minOccurs="0" name="lpuAddress" type="com:lpuAddress" />
+      <xs:element name="lpuOgrn" type="org:OgrnType" />
+      <xs:element name="birthday" type="com:simpleDate" />
+      <xs:element name="gender" type="xs:int" />
+      <xs:element minOccurs="0" name="reason1" type="com:dictCode" />
+      <xs:element minOccurs="0" name="reason2" type="com:dictCode" />
+      <xs:element minOccurs="0" name="reason3" type="com:dictCode" />
+      <xs:element minOccurs="0" name="date1" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="date2" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="voucherNo" type="xs:string" />
+      <xs:element minOccurs="0" name="voucherOgrn" type="org:OgrnType" />
+      <xs:element minOccurs="0" name="servData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="servFullData">
+              <xs:complexType>
+                <xs:complexContent mixed="false">
+                  <xs:extension base="com:ServFullData">
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="servAge" type="xs:int" />
+                      <xs:element minOccurs="0" name="servMm" type="xs:int" />
+                    </xs:sequence>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="pregn12wFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="hospitalDt1" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="hospitalDt2" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="hospitalBreach" type="com:HospitalBreachInfo" />
+      <xs:element minOccurs="0" name="mseDt1" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="mseDt2" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="mseDt3" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="mseInvalidGroup" type="xs:int" />
+      <xs:element name="treatPeriods">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="3" name="treatFullPeriod" type="com:TreatFullPeriod" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="lnResult" type="com:LnResult" />
+      <xs:element name="lnState" type="com:lnState" />
+      <xs:element minOccurs="0" name="innPerson" type="p:inn" />
+      <xs:element minOccurs="0" name="employer" type="com:employer" />
+      <xs:element minOccurs="0" name="emplFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="emplRegNo" type="org:regNum" />
+      <xs:element minOccurs="0" name="emplParentNo" type="xs:string" />
+      <xs:element minOccurs="0" name="emplRegNo2" type="org:regNum" />
+      <xs:element minOccurs="0" name="approve1" type="xs:string" />
+      <xs:element minOccurs="0" name="approve2" type="xs:string" />
+      <xs:element minOccurs="0" name="baseAvgSal" type="xs:double" />
+      <xs:element minOccurs="0" name="baseAvgDailySal" type="xs:double" />
+      <xs:element minOccurs="0" name="insurYy" type="xs:int" />
+      <xs:element minOccurs="0" name="insurMm" type="xs:int" />
+      <xs:element minOccurs="0" name="notInsurYy" type="xs:int" />
+      <xs:element minOccurs="0" name="notInsurMm" type="xs:int" />
+      <xs:element minOccurs="0" name="calcCondition1" type="com:dictCode" />
+      <xs:element minOccurs="0" name="calcCondition2" type="com:dictCode" />
+      <xs:element minOccurs="0" name="calcCondition3" type="com:dictCode" />
+      <xs:element minOccurs="0" name="calcCondition4" type="com:dictCode" />
+      <xs:element minOccurs="0" name="form1Dt" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="returnDateEmpl" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="dt1Ln" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="dt2Ln" type="com:simpleDate" />
+      <xs:element minOccurs="0" name="emplPayment" type="xs:double" />
+      <xs:element minOccurs="0" name="fssPayment" type="xs:double" />
+      <xs:element minOccurs="0" name="payment" type="xs:double" />
+      <xs:element minOccurs="0" name="correctionReason" type="xs:string" />
+      <xs:element minOccurs="0" name="correctionNote" type="com:correctionNote" />
+      <xs:element minOccurs="0" name="previouslyIssuedCode" type="com:lnCode" />
+      <xs:element minOccurs="0" name="intermittentMethodFlag" type="xs:boolean" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="Data">
+    <xs:sequence>
+      <xs:element name="outRowset" nillable="true" type="tns:OutRowset" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="data" type="tns:Data" />
+  <xs:element name="info" type="com:Info" />
+  <xs:element name="outRowset" type="tns:OutRowset" />
+  <xs:element name="rowset" type="tns:Rowset" />
+  <xs:element name="rowsetWrapper" type="tns:RowsetWrapper" />
+</xs:schema>

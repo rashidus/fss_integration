@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.fss.ru/integration/types/fault/v01" xmlns:sedo="http://www.fss.ru/integration/types/sedo/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/fault/v01" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/dic/FaultCode.xsd" namespace="http://www.fss.ru/integration/types/dic/fault/v01" />
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/sedo/Sedo.xsd" namespace="http://www.fss.ru/integration/types/sedo/v01" />
+  <xs:complexType name="CommonFault">
+    <xs:annotation>
+      <xs:documentation />
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="uuid" type="xs:string" />
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InternalFault">
+    <xs:annotation>
+      <xs:documentation>
+                Внутренняя ошибка. Если произошла не класифицируемая ошибка сервиса
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InvalidDataFault">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибки при обработке входящего сообщения
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="uuidInbound" type="sedo:Uuid" />
+      <xs:element name="faultList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="unbounded" name="fault" type="CommonFault" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DigitalSignFault">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка при обработке ЭЦП
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DecryptFault">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка при расшифровке сообщения
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TmsFault">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка в работе транспортного слоя
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PovdBusinessFaultType">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка при обработке заявления на подтверждение видов экономической деятельности
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="internalFault" type="InternalFault">
+    <xs:annotation>
+      <xs:documentation>
+                Внутренняя ошибка. Если произошла не класифицируемая ошибка сервиса
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="invalidDataFault" type="InvalidDataFault">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка форматно-логического контроля
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="digitalSignFault" type="DigitalSignFault">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка при обработке ЭЦП
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="decryptFault" type="DecryptFault">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка при обработке ЭЦП
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="tmsFault" type="TmsFault">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка в работе транспортного слоя
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="povdBusinessFaultType" type="PovdBusinessFaultType">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка при обработке заявления на подтверждение видов экономической деятельности
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element abstract="true" name="BusinessFault">
+    <xs:annotation>
+      <xs:documentation>
+                Ошибка валидации бизнеслогики. свой у каждого сервиса/арма/функции свой
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>

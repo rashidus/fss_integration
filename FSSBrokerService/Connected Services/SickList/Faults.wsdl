@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flt="http://www.fss.ru/integration/types/fault/v01" targetNamespace="http://www.fss.ru/integration/ws/fault/v01" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Fault.xsd" namespace="http://www.fss.ru/integration/types/fault/v01" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DecryptException">
+    <wsdl:part name="decryptFault" element="flt:decryptFault" />
+  </wsdl:message>
+  <wsdl:message name="InternalException">
+    <wsdl:part name="internalFault" element="flt:internalFault" />
+  </wsdl:message>
+  <wsdl:message name="DigitalSignException">
+    <wsdl:part name="digitalSignFault" element="flt:digitalSignFault" />
+  </wsdl:message>
+</wsdl:definitions>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.fss.ru/integration/types/person/v01" xmlns:id="http://www.fss.ru/integration/types/identityDocument/v01" xmlns:c="http://www.fss.ru/integration/types/common/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/person/v01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/IdentityDocument.xsd" id="id" namespace="http://www.fss.ru/integration/types/identityDocument/v01" />
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Common.xsd" id="c" namespace="http://www.fss.ru/integration/types/common/v01" />
+  <xs:element name="person" type="person" />
+  <xs:element name="address" type="address" />
+  <xs:element name="contacts" type="contacts" />
+  <xs:complexType name="person">
+    <xs:sequence>
+      <xs:element name="firstName" type="firstName" />
+      <xs:element name="lastName" type="lastName" />
+      <xs:element name="middleName" type="middleName" />
+      <xs:element name="id" type="id:identityDocument" />
+      <xs:element name="birthDate" type="xs:date" />
+      <xs:element maxOccurs="1" name="citizenship" type="xs:string" />
+      <xs:element maxOccurs="1" name="gender" type="c:dictionary" />
+      <xs:element maxOccurs="1" name="snils" type="snils" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="address">
+    <xs:sequence>
+      <xs:element name="residence" type="xs:string" />
+      <xs:element name="isFixPlaceResidence " type="xs:boolean" />
+      <xs:element name="placeRegistration" type="xs:string" />
+      <xs:element name="isHomeless" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contacts">
+    <xs:sequence>
+      <xs:element name="contact" type="c:contact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FullName">
+    <xs:annotation>
+      <xs:documentation>Полное имя физлица</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="firstName" type="firstName">
+        <xs:annotation>
+          <xs:documentation>Имя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="secondName" type="lastName">
+        <xs:annotation>
+          <xs:documentation>Фамилия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="middleName" type="middleName">
+        <xs:annotation>
+          <xs:documentation>Отчество</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="firstName">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="40" />
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="lastName">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="40" />
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="middleName">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="40" />
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="snils">
+    <xs:restriction base="xs:string">
+      <xs:length value="11" />
+      <xs:pattern value="[0-9]*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="inn">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GenderType">
+    <xs:annotation>
+      <xs:documentation>Пол получателя услуг</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MALE">
+        <xs:annotation>
+          <xs:documentation>Пол: мужской</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FEMALE">
+        <xs:annotation>
+          <xs:documentation>Пол: женский</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RecipientAddressType">
+    <xs:annotation>
+      <xs:documentation>Тип адреса получателя услуг</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LIVEPLACE">
+        <xs:annotation>
+          <xs:documentation>Местожительства</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="REG">
+        <xs:annotation>
+          <xs:documentation>Регистрации</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WORK">
+        <xs:annotation>
+          <xs:documentation>Рабочий</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="REGLK">
+        <xs:annotation>
+          <xs:documentation>Регистрации адрес ЛК</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FACTLK">
+        <xs:annotation>
+          <xs:documentation>Фактический адрес ЛК</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="REG_PFR">
+        <xs:annotation>
+          <xs:documentation>Регистрации ГЛК ПФР</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FACT_PFR">
+        <xs:annotation>
+          <xs:documentation>Фактический ГЛК ПФР</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LEGAL">
+        <xs:annotation>
+          <xs:documentation>Юридический</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FACT">
+        <xs:annotation>
+          <xs:documentation>Фактический</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HOST">
+        <xs:annotation>
+          <xs:documentation>Пребывания</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FACTLIVE">
+        <xs:annotation>
+          <xs:documentation>Фактического проживания</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

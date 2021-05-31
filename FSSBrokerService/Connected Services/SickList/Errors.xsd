@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.fss.ru/integration/types/dic/errors/v01" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/dic/errors/v01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="BusinessErrorCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="E_0010" />
+      <xs:enumeration value="E_PVSO_0010" />
+      <xs:enumeration value="E_TSR_0010">
+        <xs:annotation>
+          <xs:documentation>Спецификация контракта по заданным параметрам не найдена</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_TSR_0020">
+        <xs:annotation>
+          <xs:documentation>Не найден регион</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SystemErrorCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="E0010">
+        <xs:annotation>
+          <xs:documentation>Внутренняя ошибка сервиса</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SedoErrorType">
+    <xs:annotation>
+      <xs:documentation>Справочник кодов ошибок СЭДО</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="E_SEDO_0000">
+        <xs:annotation>
+          <xs:documentation>Внутренняя ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_1000">
+        <xs:annotation>
+          <xs:documentation>Шлюз СЭДО. Внутренняя ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_1010">
+        <xs:annotation>
+          <xs:documentation>Ошибка при попытке расшифровать сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_1011">
+        <xs:annotation>
+          <xs:documentation>Не указан сертификат пользователя для шифрования ответного сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_1020">
+        <xs:annotation>
+          <xs:documentation>Ошибка при проверке подписи</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_1030">
+        <xs:annotation>
+          <xs:documentation>Содержимое тега message не является строкой в формате base64</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_1040">
+        <xs:annotation>
+          <xs:documentation>Ошибка при сохранении входящего сообщения в транспортную таблицу</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_1070">
+        <xs:annotation>
+          <xs:documentation>Ошибка при сохранении исходящего сообщения в транспортную таблицу</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_1080">
+        <xs:annotation>
+          <xs:documentation>Ошибка подписи исходящего сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_1090">
+        <xs:annotation>
+          <xs:documentation>Ошибка при попытке зашифровать исходящее сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_2000">
+        <xs:annotation>
+          <xs:documentation>Ядро СЭДО. Внутренняя ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_3000">
+        <xs:annotation>
+          <xs:documentation>ФК СЭДО. Внутренняя ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_3010">
+        <xs:annotation>
+          <xs:documentation>Указанное сообщение не найдено</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_3020">
+        <xs:annotation>
+          <xs:documentation>Неверный формат сообщения. Проверьте на соответствие XSD схеме</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_3110">
+        <xs:annotation>
+          <xs:documentation>Указанный абонент уже подписан на данного оператора</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_3120">
+        <xs:annotation>
+          <xs:documentation>Указанный абонент уже откреплен от оператора</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E_SEDO_3130">
+        <xs:annotation>
+          <xs:documentation>Указанный абонент не был подписан на оператора</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

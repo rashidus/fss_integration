@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns="http://www.fss.ru/integration/types/eln/v01" xmlns:p="http://www.fss.ru/integration/types/person/v01" xmlns:c="http://www.fss.ru/integration/types/common/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/eln/v01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Common.xsd" id="c" namespace="http://www.fss.ru/integration/types/common/v01" />
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Person.xsd" namespace="http://www.fss.ru/integration/types/person/v01" />
+  <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/eln/WsSecurity.xsd" namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" />
+  <xs:element name="hospital" type="c:period">
+    <xs:annotation>
+      <xs:documentation>
+                Листок нетрудоспособности: Стационар: Находился в стационаре с даты по дату
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="hospitalBreach">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" />
+      <xs:element name="date" type="xs:date" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serv">
+    <xs:annotation>
+      <xs:documentation>
+                Листок нетрудоспособности: По уходу за родственником
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="age" type="c:countYear" />
+      <xs:element name="mm" type="c:countMount" />
+      <xs:element name="days" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TreatPeriod">
+    <xs:annotation>
+      <xs:documentation>
+                Период нетрудоспособности
+            </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="treatDt1" type="simpleDate" />
+      <xs:element minOccurs="0" name="treatDt2" type="simpleDate" />
+      <xs:element minOccurs="0" name="idDoctor" type="xs:string" />
+      <xs:element minOccurs="0" name="treatDoctorRole" type="doctorRole" />
+      <xs:element minOccurs="0" name="treatDoctor" type="fio" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="TreatFullPeriod">
+    <xs:annotation>
+      <xs:documentation>
+                Период нетрудоспособности: все данные
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="treatChairman" type="fio" />
+      <xs:element minOccurs="0" name="treatChairmanRole" type="doctorRole" />
+      <xs:element name="treatPeriod" type="TreatPeriod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TreatFullPeriodMo">
+    <xs:annotation>
+      <xs:documentation>
+                Период нетрудоспособности: все данные
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="treatChairman" type="fio" />
+      <xs:element minOccurs="0" name="treatChairmanRole" type="doctorRole" />
+      <xs:element name="treatPeriod">
+        <xs:complexType>
+          <xs:complexContent mixed="false">
+            <xs:extension base="TreatPeriod">
+              <xs:attribute ref="wsu:Id" />
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute ref="wsu:Id" />
+  </xs:complexType>
+  <xs:complexType name="ServFullData">
+    <xs:annotation>
+      <xs:documentation>
+                Листок нетрудоспособности: По уходу за родственником
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="servRelationCode" type="dictCode" />
+      <xs:element name="servDt1" type="simpleDate" />
+      <xs:element name="servDt2" type="simpleDate" />
+      <xs:element minOccurs="0" name="treatmentType" type="dictCode" />
+      <xs:element minOccurs="0" name="surname" type="surname" />
+      <xs:element minOccurs="0" name="name" type="name" />
+      <xs:element minOccurs="0" name="patronymic" type="patronymic" />
+      <xs:element minOccurs="0" name="birthday" type="simpleDate" />
+      <xs:element minOccurs="0" name="reason1" type="dictCode" />
+      <xs:element minOccurs="0" name="snils" type="p:snils" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LnResult">
+    <xs:annotation>
+      <xs:documentation>
+                Информация о закрытии ЭЛН
+            </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element minOccurs="0" name="returnDateLpu" type="simpleDate" />
+      <xs:element minOccurs="0" name="mseResult" type="dictCode" />
+      <xs:element minOccurs="0" name="otherStateDt" type="simpleDate" />
+      <xs:element minOccurs="0" name="nextLnCode" type="lnCode" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="HospitalBreachInfo">
+    <xs:annotation>
+      <xs:documentation>
+                Информация о пребывании в стационаре
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="hospitalBreachCode" type="dictCode" />
+      <xs:element name="hospitalBreachDt" type="simpleDate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSResult">
+    <xs:annotation>
+      <xs:documentation>
+                Результат обработки запроса
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="requestId" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="xs:int" />
+      <xs:element minOccurs="0" name="mess" type="xs:string" />
+      <xs:element minOccurs="0" name="info" type="Info" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LnCodeList">
+    <xs:annotation>
+      <xs:documentation>
+                Перечень номеров ЭЛН
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="lnCode" type="lnCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Info">
+    <xs:annotation>
+      <xs:documentation>
+                Инцормационное сообщение об ошибке
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="infoRowset">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="unbounded" name="infoRow">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element minOccurs="1" maxOccurs="1" name="rowNo" nillable="true" type="xs:integer" />
+                  <xs:element minOccurs="1" maxOccurs="1" name="lnCode" type="lnCode" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="lnHash" type="lnHash" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="lnState" type="lnState" />
+                  <xs:element name="status" type="xs:int" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="errors">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="1" maxOccurs="unbounded" name="error">
+                          <xs:complexType>
+                            <xs:all>
+                              <xs:element minOccurs="1" maxOccurs="1" name="errCode" type="xs:string" />
+                              <xs:element minOccurs="1" maxOccurs="1" name="errMess" type="xs:string" />
+                            </xs:all>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="name">
+    <xs:annotation>
+      <xs:documentation>
+                Имя застрахованного
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="surname">
+    <xs:annotation>
+      <xs:documentation>
+                Фамилия застрахованного
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="patronymic">
+    <xs:annotation>
+      <xs:documentation>
+                Отчество застрахованного
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="lnCode">
+    <xs:annotation>
+      <xs:documentation>
+                Номер ЭЛН
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:length value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="diagnosis">
+    <xs:annotation>
+      <xs:documentation>
+                Диагноз (значение справочника МКБ-10)
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="lpuName">
+    <xs:annotation>
+      <xs:documentation>
+                Наименование ЛПУ
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="90" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="lpuAddress">
+    <xs:annotation>
+      <xs:documentation>
+                Адрес ЛПУ
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="correctionNote">
+    <xs:annotation>
+      <xs:documentation>
+                Причина исправления ЭЛН
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="employer">
+    <xs:annotation>
+      <xs:documentation>
+                Наименование страхователя
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="voucherNo">
+    <xs:annotation>
+      <xs:documentation>
+                Номер путевки
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:length value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="fio">
+    <xs:annotation>
+      <xs:documentation>
+                ФИО застрахованного
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="90" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="lnState">
+    <xs:annotation>
+      <xs:documentation>
+                Статус ЭЛН
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="lnHash">
+    <xs:annotation>
+      <xs:documentation>
+                Хеш ЭЛН
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="32" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="doctorRole">
+    <xs:annotation>
+      <xs:documentation>
+                Должность врача
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="300" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dictCode">
+    <xs:annotation>
+      <xs:documentation>
+                Значение из справочника
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="simpleDate">
+    <xs:annotation>
+      <xs:documentation>Дата в виде YYYY-MM-DD, без времени и смещения временной зоны</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date">
+      <xs:pattern value="\d{4}-\d\d-\d\d" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="version">
+    <xs:annotation>
+      <xs:documentation>
+                Версия
+            </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:maxLength value="10" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="software">
+    <xs:annotation>
+      <xs:documentation>
+                Наименование ПО
+            </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:maxLength value="255" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="version_software">
+    <xs:annotation>
+      <xs:documentation>
+                Версия ПО
+            </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:maxLength value="30" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="author">
+    <xs:annotation>
+      <xs:documentation>
+                Автор изменений
+            </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:maxLength value="120" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="phone">
+    <xs:annotation>
+      <xs:documentation>
+                Телефонный номер
+            </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:maxLength value="30" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="email">
+    <xs:annotation>
+      <xs:documentation>
+                Электронный адрес
+            </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:maxLength value="40" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="Id" type="xs:ID">
+    <xs:annotation>
+      <xs:documentation>
+                This global attribute supports annotating arbitrary elements with an ID.
+            </xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+</xs:schema>

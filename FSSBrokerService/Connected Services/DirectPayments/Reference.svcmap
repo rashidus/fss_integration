@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1156ea51-71d0-41b0-845e-c25bb3eab9f8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://docs.fss.ru/ExtService/GatewayService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GatewayService.wsdl" MetadataType="Wsdl" ID="172e72c2-85d8-42aa-9a84-5b7942acae20" SourceId="1" SourceUrl="http://docs.fss.ru/ExtService/GatewayService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="GatewayService1.wsdl" MetadataType="Wsdl" ID="b994c613-94a7-493b-8da7-7466b20150df" SourceId="1" SourceUrl="http://docs.fss.ru/ExtService/GatewayService.svc?wsdl" />
+    <MetadataFile FileName="GatewayService.xsd" MetadataType="Schema" ID="7a72a6ce-6cdd-42fd-8534-3891691edfc1" SourceId="1" SourceUrl="http://docs.fss.ru/ExtService/GatewayService.svc?xsd=xsd0" />
+    <MetadataFile FileName="GatewayService1.xsd" MetadataType="Schema" ID="777bb779-8ab7-4916-8e4e-806e83519f1f" SourceId="1" SourceUrl="http://docs.fss.ru/ExtService/GatewayService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GatewayService2.xsd" MetadataType="Schema" ID="444509e8-dfd4-41cd-afd8-699b2500c4e6" SourceId="1" SourceUrl="http://docs.fss.ru/ExtService/GatewayService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GatewayService3.xsd" MetadataType="Schema" ID="deb138fd-5da5-4ff7-83f7-c74892afb6fc" SourceId="1" SourceUrl="http://docs.fss.ru/ExtService/GatewayService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

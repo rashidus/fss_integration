@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:attribute name="Id" type="xs:ID">
+    <xs:annotation>
+      <xs:documentation>
+				This global attribute supports annotating arbitrary elements with an ID.
+			</xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+</xs:schema>

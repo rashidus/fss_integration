@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a5ddb196-87fe-4527-ac27-151451f437e5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Errors.xsd" MetadataType="Schema" ID="0e63c5c6-1f94-489b-99da-2916ef10ba2d" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Errors.xsd" />
+    <MetadataFile FileName="Eln.xsd" MetadataType="Schema" ID="7fb37505-ec77-4fa2-86ad-e9aa88190d46" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Eln.xsd" />
+    <MetadataFile FileName="IdentityDocument.xsd" MetadataType="Schema" ID="1856c0a1-6b5b-4e71-a196-89c6bfe1a704" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/IdentityDocument.xsd" />
+    <MetadataFile FileName="Faults.wsdl" MetadataType="Wsdl" ID="74177c10-e8e1-4975-b32a-5376f1740f1d" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?wsdl=../Faults.wsdl" />
+    <MetadataFile FileName="Sedo.xsd" MetadataType="Schema" ID="030a4845-d889-4fe9-8e2b-5128cf1fdf52" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/sedo/Sedo.xsd" />
+    <MetadataFile FileName="WsSecurity.xsd" MetadataType="Schema" ID="25114f19-0007-4056-a5f3-a4d44dcb0574" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/eln/WsSecurity.xsd" />
+    <MetadataFile FileName="Organization.xsd" MetadataType="Schema" ID="5bc8c786-0f3f-4467-bd02-d9064723669b" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Organization.xsd" />
+    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="fd572d80-0bea-47bb-9816-09e252dc5497" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Common.xsd" />
+    <MetadataFile FileName="Person.xsd" MetadataType="Schema" ID="552ec2e8-a8af-4f46-b4da-251ddb2a2b33" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Person.xsd" />
+    <MetadataFile FileName="FileOperationsLnService.wsdl" MetadataType="Wsdl" ID="a57c7ab9-a5fc-4444-ba0a-316408f3bb6a" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?WSDL" />
+    <MetadataFile FileName="Fault.xsd" MetadataType="Schema" ID="66baac47-74a1-4550-9812-e8d4df7fb9ea" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Fault.xsd" />
+    <MetadataFile FileName="FaultCode.xsd" MetadataType="Schema" ID="17dc2080-362e-4f18-91ef-ef0622823053" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/dic/FaultCode.xsd" />
+    <MetadataFile FileName="FileOperationsLnIns.xsd" MetadataType="Schema" ID="f7597e08-8fda-475b-bf4f-5627607c9398" SourceId="1" SourceUrl="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/eln/FileOperationsLnIns.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://www.fss.ru/integration/types/sedo/v01" xmlns:org="http://www.fss.ru/integration/types/organization/v01" xmlns:com="http://www.fss.ru/integration/types/common/v01" targetNamespace="http://www.fss.ru/integration/types/sedo/v01" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Organization.xsd" namespace="http://www.fss.ru/integration/types/organization/v01" />
+  <xsd:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/type/Common.xsd" namespace="http://www.fss.ru/integration/types/common/v01" />
+  <xsd:element name="getMessageRequest" type="GetMessageRequest">
+    <xsd:annotation>
+      <xsd:documentation>Родительский элемент запроса для получения исходящего сообщения</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="getCntMessageRequest" type="GetCntMessageRequest">
+    <xsd:annotation>
+      <xsd:documentation>Для абонентов. Родительский элемент запроса для получения списка исходящих сообщений</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="putMessageRequest" type="PutMessageRequest">
+    <xsd:annotation>
+      <xsd:documentation>Родительский элемент запроса для получения исходящего сообщения</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="getCntMessageOperatorRequest" type="GetCntMessageOperatorRequest">
+    <xsd:annotation>
+      <xsd:documentation>Для операторов. Родительский элемент запроса для получения списка исходящих сообщений</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="sedoUuidResponse" type="SedoUuidResponseType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Родительский элемент ответа.
+            </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="sedoMessageResponse" type="SedoMessageResponseType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Родительский элемент ответа.
+            </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="transportUuid" type="Uuid">
+    <xsd:annotation>
+      <xsd:documentation>
+                Транспортный идентификатор запроса
+            </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="messageListResponse" type="MessageListResponseType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Родительский элемент ответа.
+            </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="Uuid">
+    <xsd:annotation>
+      <xsd:documentation>Идентификатор сообщения</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="50" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RecipientId">
+    <xsd:annotation>
+      <xsd:documentation>Идентификатор абонента. Для Страхователя - регномер, для МО - ОГРН</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:complexType name="GetMessageRequest">
+    <xsd:annotation>
+      <xsd:documentation>Запрос на получение сообщений</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="CommonMessageRequest">
+        <xsd:sequence>
+          <xsd:element name="uuid" type="Uuid">
+            <xsd:annotation>
+              <xsd:documentation>
+                                Идентификатор сообщения
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="recipientId" type="RecipientId">
+            <xsd:annotation>
+              <xsd:documentation>Идентификатор абонента</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="UuidList">
+    <xsd:annotation>
+      <xsd:documentation>Тип для определения списка</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="uuid" type="Uuid">
+        <xsd:annotation>
+          <xsd:documentation>Список uuid сообщений</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MessageStatusList">
+    <xsd:annotation>
+      <xsd:documentation>Тип для определения списка</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="statuses" type="MessageStatus">
+        <xsd:annotation>
+          <xsd:documentation>Список статусов сообщений</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MessageStatus">
+    <xsd:annotation>
+      <xsd:documentation>Статус сообщения</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="uuid" type="Uuid">
+        <xsd:annotation>
+          <xsd:documentation>Uuid входящего сообщения</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="status" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Статус сообщения</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="message" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Сообщение, может заполняться в случае ошибки</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="responseUuid" type="Uuid">
+        <xsd:annotation>
+          <xsd:documentation>Uuid результата обработки</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetMessageStatusRequest">
+    <xsd:annotation>
+      <xsd:documentation>Запрос на получение статуса обработки put-сообщения</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="CommonMessageRequest">
+        <xsd:sequence>
+          <xsd:element name="recipientId" type="RecipientId">
+            <xsd:annotation>
+              <xsd:documentation>Идентификатор абонента</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="uuids" type="UuidList">
+            <xsd:annotation>
+              <xsd:documentation>
+                                Идентификатор сообщения
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="GetCntMessageRequest">
+    <xsd:annotation>
+      <xsd:documentation>Запрос на получение количества сообщений абонентом</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="CommonMessageRequest">
+        <xsd:sequence>
+          <xsd:element name="recipientId" type="RecipientId">
+            <xsd:annotation>
+              <xsd:documentation>Идентификатор абонента</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="messageDate" type="xsd:date">
+            <xsd:annotation>
+              <xsd:documentation>
+                                Дата сообщения
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="GetCntMessageOperatorRequest">
+    <xsd:annotation>
+      <xsd:documentation>Запрос на получение количества сообщений для оператора</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="CommonMessageRequest">
+        <xsd:sequence>
+          <xsd:element name="operatorOgrn" type="org:ogrn">
+            <xsd:annotation>
+              <xsd:documentation>
+                                Идентификатор оператора (ОГРН)
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="messageDate" type="xsd:date">
+            <xsd:annotation>
+              <xsd:documentation>
+                                Дата сообщения
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PutMessageRequest">
+    <xsd:annotation>
+      <xsd:documentation>Запрос для отправки входящих сообщений</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="CommonMessageRequest">
+        <xsd:sequence>
+          <xsd:element name="recipientId" type="RecipientId">
+            <xsd:annotation>
+              <xsd:documentation>Идентификатор абонента</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="messageType" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>
+                                Идентификатор типа сообщения
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="message" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>
+                                Сообщение в кодировке base64
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CommonMessageRequest">
+    <xsd:sequence>
+      <xsd:element name="systemInfo" type="SystemInfo">
+        <xsd:annotation>
+          <xsd:documentation>Информация о системе, направляющей запрос
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="interactionType" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Тип взаимодействия</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SedoUuidResponseType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Возвращаемый тип содержащий uuid-отправленных сообщений или список ошибок
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element name="result" type="SedoUuid">
+        <xsd:annotation>
+          <xsd:documentation>UUID сообщения</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="errorList" type="com:ErrorType">
+        <xsd:annotation>
+          <xsd:documentation>Список сообщений об ошибках</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="SedoMessageResponseType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Возвращаемый тип содержащий исходящее сообщение или список ошибок
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element name="result" type="SedoMessage">
+        <xsd:annotation>
+          <xsd:documentation>Исходящее сообщение</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="errorList" type="com:ErrorType">
+        <xsd:annotation>
+          <xsd:documentation>Список сообщений об ошибках</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="MessageListResponseType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Возвращаемый тип содержащий список uuid исходящих сообщений или список ошибок
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element name="result" type="MessageList">
+        <xsd:annotation>
+          <xsd:documentation>Список исходящих сообщений</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="errorList" type="com:ErrorType">
+        <xsd:annotation>
+          <xsd:documentation>Сообщения об ошибках</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="SedoMessage">
+    <xsd:annotation>
+      <xsd:documentation>Ответ на запрос о сообщениях</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="expiryDate" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>
+                        Дата, время окончания актуальности сообщения
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="uuid" type="Uuid">
+        <xsd:annotation>
+          <xsd:documentation>
+                        Идентификатор сообщения
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="messageType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>
+                        Идентификатор типа сообщения
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="recipientId" type="RecipientId" />
+      <xsd:element name="message" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>
+                        Сообщение в кодировке base64
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="needConfirm" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>
+                        Обязательность подтверждения прочтения
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SedoUuid">
+    <xsd:annotation>
+      <xsd:documentation>Uuid сообщения</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="uuid" type="Uuid" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MessageList">
+    <xsd:annotation>
+      <xsd:documentation>Ответ на запрос о количестве сообщений</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="messageCount" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>
+                            Количество сообщений
+                        </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="messageList" type="MessageInfo" />
+      <xsd:element minOccurs="0" name="broadcastMessageList">
+        <xsd:annotation>
+          <xsd:documentation>
+                            Список широковещательных сообщений
+                        </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="broadcastMessage" type="BroadcastMessageType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PutMessageRequestProcessor">
+    <xsd:annotation>
+      <xsd:documentation>Запрос для отправки входящих сообщений</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="CommonClientMessage">
+        <xsd:sequence>
+          <xsd:element name="recipientId" type="RecipientId" />
+          <xsd:element name="msgType" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>
+                                Идентификатор типа сообщения
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="msgGuid" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>
+                                guid сообщения
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="message" type="xsd:base64Binary">
+            <xsd:annotation>
+              <xsd:documentation>
+                                Сообщение
+                            </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SystemInfo">
+    <xsd:annotation>
+      <xsd:documentation>Информация о взаимодействующей по протоколу системе</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="specVersion">
+        <xsd:annotation>
+          <xsd:documentation>Версия спецификации, по которой происходит взаимодействие. Берется с титульного
+                        листа документации с описанием спецификации.
+                    </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="software">
+        <xsd:annotation>
+          <xsd:documentation>Наименование используемого программного обеспечения</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="softwareVersion">
+        <xsd:annotation>
+          <xsd:documentation>Версия используемого программного обеспечения</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MessageInfo">
+    <xsd:sequence>
+      <xsd:element name="uuid" type="Uuid">
+        <xsd:annotation>
+          <xsd:documentation>
+                        Идентификатор сообщения
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="messageType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>
+                        Идентификатор типа сообщения
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="recipientId" type="RecipientId" />
+      <xsd:element minOccurs="0" name="expiryDate" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>
+                        Дата окончания актуальности сообщения
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="needConfirm" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>
+                        Обязательность подтверждения прочтения
+                    </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CommonClientMessage">
+    <xsd:sequence>
+      <xsd:element name="interactionType" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Тип взаимодействия</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BroadcastMessageType">
+    <xsd:sequence>
+      <xsd:element name="messageUuid" type="Uuid" />
+      <xsd:element name="message" type="xsd:string" />
+      <xsd:element minOccurs="0" name="dateOfRelevance" type="xsd:date" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

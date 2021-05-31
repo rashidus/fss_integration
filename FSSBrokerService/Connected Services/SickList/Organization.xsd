@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.fss.ru/integration/types/organization/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/organization/v01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="regNum">
+    <xs:annotation>
+      <xs:documentation>
+                Регистрационный номер страхователя
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{10}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="fullName">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="inn">
+    <xs:annotation>
+      <xs:documentation>Идентификационный номер налогоплательщика (ИНН)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{10}">
+        <xs:annotation>
+          <xs:documentation>ИНН для иридических лиц</xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+      <xs:pattern value="\d{12}">
+        <xs:annotation>
+          <xs:documentation>ИНН для ИП</xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ogrn">
+    <xs:restriction base="xs:string">
+      <xs:length value="13" />
+      <xs:pattern value="([0-9])*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ogrnip">
+    <xs:annotation>
+      <xs:documentation>
+                ОГРН индивидуального предпринимателя
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:length value="15" />
+      <xs:pattern value="([0-9])*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OgrnMixType">
+    <xs:annotation>
+      <xs:documentation>Основной государственный регистрационный номер организаций и индивидуальных
+                предпринимателей
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="13" />
+      <xs:maxLength value="15" />
+      <xs:pattern value="([0-9])*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OgrnType">
+    <xs:annotation>
+      <xs:documentation>Основной государственный регистрационный номер организаций и индивидуальных
+                предпринимателей
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([0-9]{15}|[0-9]{13})" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="kpp">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{9}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="kpsNum">
+    <xs:annotation>
+      <xs:documentation>Код подчиненности к территориальному органу ФСС</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:length value="5" />
+      <xs:pattern value="([0-9])*" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

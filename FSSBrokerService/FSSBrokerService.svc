@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="FSSBrokerService.Service1" CodeBehind="FSSBrokerService.svc.cs" %>

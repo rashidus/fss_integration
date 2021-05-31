@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ins="http://www.fss.ru/integration/types/eln/ins/v01" xmlns:fs="http://www.fss.ru/integration/ws/fault/v01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://www.fss.ru/integration/ws/eln/ins/v01" name="FileOperationsLnService" targetNamespace="http://www.fss.ru/integration/ws/eln/ins/v01" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.fss.ru/integration/ws/fault/v01" location="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?wsdl=../Faults.wsdl" />
+  <wsdl:types>
+    <xs:schema>
+      <xs:import schemaLocation="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService?xsd=../../xsd/v01/eln/FileOperationsLnIns.xsd" namespace="http://www.fss.ru/integration/types/eln/ins/v01" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPrivateLNDataResponse">
+    <wsdl:part name="response" element="ins:getPrivateLNDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivateLNDataRequest">
+    <wsdl:part name="request" element="ins:getPrivateLNDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="PrParseReestrFileResponse">
+    <wsdl:part name="response" element="ins:prParseReestrFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrParseReestrFileRequest">
+    <wsdl:part name="request" element="ins:prParseReestrFileRequest" />
+  </wsdl:message>
+  <wsdl:portType name="FileOperationsLnService">
+    <wsdl:operation name="PrParseReestrFile">
+      <wsdl:documentation>Отправка данных ЭЛН</wsdl:documentation>
+      <wsdl:input name="prParseReestrFileRequest" message="PrParseReestrFileRequest" />
+      <wsdl:output name="prParseReestrFileResponse" message="PrParseReestrFileResponse" />
+      <wsdl:fault name="internalException" message="fs:InternalException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateLNData">
+      <wsdl:documentation>Запрос данных элн</wsdl:documentation>
+      <wsdl:input name="getPrivateLNDataRequest" message="GetPrivateLNDataRequest" />
+      <wsdl:output name="getPrivateLNDataResponse" message="GetPrivateLNDataResponse" />
+      <wsdl:fault name="internalException" message="fs:InternalException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FileOperationsLnBinding" type="FileOperationsLnService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PrParseReestrFile">
+      <soap:operation soapAction="http://www.fss.ru/integration/ws/eln/ins/prParseReestrFile/v01" style="document" />
+      <wsdl:input name="prParseReestrFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="prParseReestrFileResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="internalException">
+        <soap:fault use="literal" name="internalException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateLNData">
+      <soap:operation soapAction="http://www.fss.ru/integration/ws/eln/ins/getPrivateLNData/v01" style="document" />
+      <wsdl:input name="getPrivateLNDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPrivateLNDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="internalException">
+        <soap:fault use="literal" name="internalException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileOperationsLnService">
+    <wsdl:port name="FileOperationsLnPort" binding="FileOperationsLnBinding">
+      <soap:address location="https://docs.fss.ru/ws-insurer-crypto-v20/FileOperationsLnService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
