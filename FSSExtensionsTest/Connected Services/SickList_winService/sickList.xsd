@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.fss.ru/integration/types/eln/ins/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/eln/ins/v01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:9001/sickList?xsd=xsd1" namespace="http://www.fss.ru/integration/types/eln/v01" />
+  <xs:element name="prParseReestrFileRequest" type="tns:PrParseReestrFileRequest" />
+  <xs:complexType name="PrParseReestrFileRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:PrParseReestrFileType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PrParseReestrFileType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="regNum" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="pXmlFile" type="tns:RowsetWrapper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RowsetWrapper">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="rowset" type="tns:Rowset" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Rowset">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="row">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="lnCode" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="snils" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="innPerson" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="employer" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="emplFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="emplRegNo" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="emplParentNo" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="emplRegNo2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="approve1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="approve2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="baseAvgSal" type="xs:double" />
+            <xs:element minOccurs="0" maxOccurs="1" name="baseAvgDailySal" type="xs:double" />
+            <xs:element minOccurs="1" maxOccurs="1" name="insurYy" nillable="true" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="insurMm" nillable="true" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="notInsurYy" nillable="true" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="notInsurMm" nillable="true" type="xs:int" />
+            <xs:element minOccurs="0" maxOccurs="1" name="calcCondition1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="calcCondition2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="calcCondition3" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="calcCondition4" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="form1Dt" nillable="true" type="xs:date" />
+            <xs:element minOccurs="1" maxOccurs="1" name="returnDateEmpl" nillable="true" type="xs:date" />
+            <xs:element minOccurs="1" maxOccurs="1" name="dt1Ln" nillable="true" type="xs:date" />
+            <xs:element minOccurs="1" maxOccurs="1" name="dt2Ln" nillable="true" type="xs:date" />
+            <xs:element minOccurs="0" maxOccurs="1" name="emplPayment" type="xs:double" />
+            <xs:element minOccurs="0" maxOccurs="1" name="fssPayment" type="xs:double" />
+            <xs:element minOccurs="0" maxOccurs="1" name="payment" type="xs:double" />
+            <xs:element minOccurs="0" maxOccurs="1" name="correctionReason" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="correctionNote" type="xs:string" />
+          </xs:sequence>
+          <xs:attribute xmlns:q1="http://www.fss.ru/integration/types/eln/v01" ref="q1:Id" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute xmlns:q2="http://www.fss.ru/integration/types/eln/v01" ref="q2:author" />
+    <xs:attribute xmlns:q3="http://www.fss.ru/integration/types/eln/v01" ref="q3:phone" />
+    <xs:attribute xmlns:q4="http://www.fss.ru/integration/types/eln/v01" ref="q4:email" />
+    <xs:attribute xmlns:q5="http://www.fss.ru/integration/types/eln/v01" ref="q5:version" />
+    <xs:attribute xmlns:q6="http://www.fss.ru/integration/types/eln/v01" ref="q6:software" />
+    <xs:attribute xmlns:q7="http://www.fss.ru/integration/types/eln/v01" ref="q7:version_software" />
+  </xs:complexType>
+  <xs:element name="prParseReestrFileResponse" type="tns:PrParseReestrFileResponse" />
+  <xs:complexType name="PrParseReestrFileResponse">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://www.fss.ru/integration/types/eln/v01" minOccurs="0" maxOccurs="1" name="wsResult" type="q8:WSResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FileOperationsLnUserGetLNDataOut">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://www.fss.ru/integration/types/eln/v01" base="q9:WSResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="data" type="tns:Data" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Data">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="outRowset" nillable="true" type="tns:OutRowset" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OutRowset">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="responseRow" type="tns:ResponseRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResponseRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="snils" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="surname" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="patronymic" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="lnCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="prevLnCode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="primaryFlag" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="duplicateFlag" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="lnDate" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="idMo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="lpuName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="lpuAddress" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="lpuOgrn" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="birthday" type="xs:date" />
+      <xs:element minOccurs="1" maxOccurs="1" name="gender" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="reason1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="reason2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="reason3" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="date1" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="date2" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="voucherNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="voucherOgrn" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="servData" type="tns:ArrayOfResponseRowServFullData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="pregn12wFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="hospitalDt1" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="hospitalDt2" type="xs:date" />
+      <xs:element xmlns:q10="http://www.fss.ru/integration/types/eln/v01" minOccurs="0" maxOccurs="1" name="hospitalBreach" type="q10:HospitalBreachInfo" />
+      <xs:element minOccurs="0" maxOccurs="1" name="mseDt1" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="mseDt2" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="mseDt3" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="mseInvalidGroup" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="treatPeriods" type="tns:ArrayOfTreatFullPeriod" />
+      <xs:element xmlns:q11="http://www.fss.ru/integration/types/eln/v01" minOccurs="0" maxOccurs="1" name="lnResult" type="q11:LnResult" />
+      <xs:element minOccurs="0" maxOccurs="1" name="lnState" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="innPerson" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="employer" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="emplFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="emplRegNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="emplParentNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="emplRegNo2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="approve1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="approve2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="baseAvgSal" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="baseAvgDailySal" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="insurYy" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="insurMm" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="notInsurYy" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="notInsurMm" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="calcCondition1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="calcCondition2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="calcCondition3" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="calcCondition4" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="form1Dt" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="returnDateEmpl" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dt1Ln" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="dt2Ln" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="emplPayment" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="fssPayment" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="payment" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="correctionReason" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="correctionNote" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="previouslyIssuedCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="intermittentMethodFlag" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfResponseRowServFullData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="servFullData">
+        <xs:complexType>
+          <xs:complexContent mixed="false">
+            <xs:extension xmlns:q12="http://www.fss.ru/integration/types/eln/v01" base="q12:ServFullData">
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="servAge" type="xs:int" />
+                <xs:element minOccurs="0" maxOccurs="1" name="servMm" type="xs:int" />
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTreatFullPeriod">
+    <xs:sequence>
+      <xs:element xmlns:q13="http://www.fss.ru/integration/types/eln/v01" minOccurs="0" maxOccurs="unbounded" name="treatFullPeriod" type="q13:TreatFullPeriod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getPrivateLNDataRequest" type="tns:GetPrivateLNDataRequest" />
+  <xs:complexType name="GetPrivateLNDataRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="regNum" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="lnCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="snils" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getPrivateLNDataResponse" type="tns:GetPrivateLNDataResponse" />
+  <xs:complexType name="GetPrivateLNDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="fileOperationsLnUserGetPrivateLNDataOut" type="tns:FileOperationsLnUserGetLNDataOut" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

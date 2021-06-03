@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://www.fss.ru/integration/ws/eln/ins/v01" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FileOperationsLnService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.fss.ru/integration/ws/eln/ins/v01" location="http://localhost:9001/sickList?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_FileOperationsLnService" type="i0:FileOperationsLnService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PrParseReestrFile">
+      <soap:operation soapAction="http://www.fss.ru/integration/ws/eln/ins/prParseReestrFile/v01" style="document" />
+      <wsdl:input name="prParseReestrFileRequest1">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="prParseReestrFileResponse1">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="internalFault">
+        <soap:fault use="literal" name="internalFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateLNData">
+      <soap:operation soapAction="http://www.fss.ru/integration/ws/eln/ins/getPrivateLNData/v01" style="document" />
+      <wsdl:input name="getPrivateLNDataRequest1">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPrivateLNDataResponse1">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="internalFault">
+        <soap:fault use="literal" name="internalFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileOperationsLnService">
+    <wsdl:port name="BasicHttpBinding_FileOperationsLnService" binding="tns:BasicHttpBinding_FileOperationsLnService">
+      <soap:address location="http://localhost:9001/sickList" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

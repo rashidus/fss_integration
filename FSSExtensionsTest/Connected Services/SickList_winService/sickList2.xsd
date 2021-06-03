@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.fss.ru/integration/types/eln/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/eln/v01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:attribute name="Id" type="xs:ID" />
+  <xs:attribute name="author" type="xs:string" />
+  <xs:attribute name="phone" type="xs:string" />
+  <xs:attribute name="email" type="xs:string" />
+  <xs:attribute name="version" type="xs:string" />
+  <xs:attribute name="software" type="xs:string" />
+  <xs:attribute name="version_software" type="xs:string" />
+  <xs:complexType name="WSResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="requestId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="status" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="mess" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="info" type="tns:Info" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Info">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="infoRowset" type="tns:ArrayOfInfoInfoRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfInfoInfoRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="infoRow">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="rowNo" nillable="true" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="lnCode" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="lnHash" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="lnState" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="status" type="xs:int" />
+            <xs:element minOccurs="0" maxOccurs="1" name="errors" type="tns:ArrayOfInfoInfoRowError" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfInfoInfoRowError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="error">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="errCode" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="errMess" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ServFullData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="servRelationCode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="servDt1" type="xs:date" />
+      <xs:element minOccurs="1" maxOccurs="1" name="servDt2" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="treatmentType" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="surname" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="patronymic" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="birthday" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="reason1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="snils" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HospitalBreachInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="hospitalBreachCode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="hospitalBreachDt" type="xs:date" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TreatFullPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="treatChairman" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="treatChairmanRole" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="treatPeriod" type="tns:TreatPeriod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TreatPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="treatDt1" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="treatDt2" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="idDoctor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="treatDoctorRole" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="treatDoctor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LnResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="returnDateLpu" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="mseResult" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="otherStateDt" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nextLnCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

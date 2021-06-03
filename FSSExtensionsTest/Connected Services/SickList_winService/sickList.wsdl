@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.fss.ru/integration/ws/eln/ins/v01" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.fss.ru/integration/ws/eln/ins/v01" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.fss.ru/integration/ws/eln/ins/v01/Imports">
+      <xsd:import schemaLocation="http://localhost:9001/sickList?xsd=xsd0" namespace="http://www.fss.ru/integration/types/eln/ins/v01" />
+      <xsd:import schemaLocation="http://localhost:9001/sickList?xsd=xsd2" namespace="http://www.fss.ru/integration/types/fault/v01" />
+      <xsd:import schemaLocation="http://localhost:9001/sickList?xsd=xsd1" namespace="http://www.fss.ru/integration/types/eln/v01" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="prParseReestrFileRequest1">
+    <wsdl:part xmlns:q1="http://www.fss.ru/integration/types/eln/ins/v01" name="prParseReestrFileRequest" element="q1:prParseReestrFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="prParseReestrFileResponse1">
+    <wsdl:part xmlns:q2="http://www.fss.ru/integration/types/eln/ins/v01" name="prParseReestrFileResponse" element="q2:prParseReestrFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileOperationsLnService_PrParseReestrFile_internalFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://www.fss.ru/integration/types/fault/v01" name="detail" element="q3:internalFault" />
+  </wsdl:message>
+  <wsdl:message name="getPrivateLNDataRequest1">
+    <wsdl:part xmlns:q4="http://www.fss.ru/integration/types/eln/ins/v01" name="getPrivateLNDataRequest" element="q4:getPrivateLNDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="getPrivateLNDataResponse1">
+    <wsdl:part xmlns:q5="http://www.fss.ru/integration/types/eln/ins/v01" name="getPrivateLNDataResponse" element="q5:getPrivateLNDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileOperationsLnService_GetPrivateLNData_internalFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://www.fss.ru/integration/types/fault/v01" name="detail" element="q6:internalFault" />
+  </wsdl:message>
+  <wsdl:portType name="FileOperationsLnService">
+    <wsdl:operation name="PrParseReestrFile">
+      <wsdl:input wsaw:Action="http://www.fss.ru/integration/ws/eln/ins/prParseReestrFile/v01" name="prParseReestrFileRequest1" message="tns:prParseReestrFileRequest1" />
+      <wsdl:output wsaw:Action="http://www.fss.ru/integration/ws/eln/ins/v01/FileOperationsLnService/PrParseReestrFileResponse" name="prParseReestrFileResponse1" message="tns:prParseReestrFileResponse1" />
+      <wsdl:fault wsaw:Action="http://www.fss.ru/integration/ws/eln/ins/prParseReestrFile/v01" name="internalFault" message="tns:FileOperationsLnService_PrParseReestrFile_internalFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateLNData">
+      <wsdl:input wsaw:Action="http://www.fss.ru/integration/ws/eln/ins/getPrivateLNData/v01" name="getPrivateLNDataRequest1" message="tns:getPrivateLNDataRequest1" />
+      <wsdl:output wsaw:Action="http://www.fss.ru/integration/ws/eln/ins/v01/FileOperationsLnService/GetPrivateLNDataResponse" name="getPrivateLNDataResponse1" message="tns:getPrivateLNDataResponse1" />
+      <wsdl:fault wsaw:Action="http://www.fss.ru/integration/ws/eln/ins/getPrivateLNData/v01" name="internalFault" message="tns:FileOperationsLnService_GetPrivateLNData_internalFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="804145bc-c99e-48bb-8244-3940058ecbe9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9001/directPayments" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="directPayments.wsdl" MetadataType="Wsdl" ID="d7304ab3-0086-48e4-b1dc-b7c4adbf6bec" SourceId="1" SourceUrl="http://localhost:9001/directPayments?wsdl=wsdl0" />
+    <MetadataFile FileName="GatewayService.wsdl" MetadataType="Wsdl" ID="2bf9f8d2-fae6-4638-80a6-b12bd057138b" SourceId="1" SourceUrl="http://localhost:9001/directPayments" />
+    <MetadataFile FileName="directPayments.xsd" MetadataType="Schema" ID="29cf355e-c3fc-49e9-ba4f-a14cd9587cad" SourceId="1" SourceUrl="http://localhost:9001/directPayments?xsd=xsd2" />
+    <MetadataFile FileName="directPayments1.xsd" MetadataType="Schema" ID="7f48ffbb-3b79-4b9d-bad4-305362143345" SourceId="1" SourceUrl="http://localhost:9001/directPayments?xsd=xsd3" />
+    <MetadataFile FileName="directPayments2.xsd" MetadataType="Schema" ID="29dff7ff-41ac-4023-a26a-c81fd8e8359b" SourceId="1" SourceUrl="http://localhost:9001/directPayments?xsd=xsd0" />
+    <MetadataFile FileName="directPayments3.xsd" MetadataType="Schema" ID="862184dc-192f-4a2d-ae81-fbdcacd73d25" SourceId="1" SourceUrl="http://localhost:9001/directPayments?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

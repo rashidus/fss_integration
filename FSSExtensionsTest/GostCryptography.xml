@@ -1,0 +1,2308 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GostCryptography</name>
+    </assembly>
+    <members>
+        <member name="F:GostCryptography.Asn1.Encryption.Gost2814789.Gost2814789Constants.IdGost2814789">
+            <summary>
+            Идентификатор OID алгоритма шифрования ГОСТ 28147-89.
+            </summary>
+            <remarks>
+            1.2.643.2.2.21
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Asn1.PKI.GostR34102001.GostR34102001Constants.IdGostR34102001String">
+            <summary>
+            Идентификатор OID алгоритма ГОСТ Р 34.10-2001, используемый при экспорте/импорте ключей.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.PKI.GostR34102001.GostR34102001Constants.IdGostR34102001">
+            <summary>
+            Идентификатор OID алгоритма ГОСТ Р 34.10-2001, используемый при экспорте/импорте ключей.
+            </summary>
+            <remarks>
+            1.2.643.2.2.19
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Asn1.PKI.GostR34102001.GostR34102001Constants.IdGostR34102001Dh">
+            <summary>
+            Идентификатор OID алгоритма Диффи-Хеллмана на базе эллиптической кривой.
+            </summary>
+            <remarks>
+            1.2.643.2.2.98
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Asn1.PKI.GostR34102001.GostR34102001Constants.IdGostR341194WithGostR34102001">
+            <summary>
+            Идентификатор OID алгоритм цифровой подписи ГОСТ Р 34.10-2001.
+            </summary>
+            <remarks>
+            1.2.643.2.2.3
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Asn1.Digest.GostR341194.GostR341194Constants.IdGostR341194">
+            <summary>
+            Идентификатор OID функции хэширования ГОСТ Р 34.11-94.
+            </summary>
+            <remarks>
+            1.2.643.2.2.9
+            </remarks>
+        </member>
+        <member name="T:GostCryptography.Asn1.Common.GostKeyExchangeParameters">
+            <summary>
+            Параметры алгоритма цифровой подписи ГОСТ Р 34.10 и алгоритма формирования общего секретного ключа, включая открытый ключ.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchangeParameters.DigestParamSet">
+            <summary>
+            Идентификатор OID параметров хэширования.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchangeParameters.PublicKeyParamSet">
+            <summary>
+            Идентификатор OID параметров открытого ключа.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchangeParameters.EncryptionParamSet">
+            <summary>
+            Идентификатор OID параметров шифрования.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchangeParameters.PublicKey">
+            <summary>
+            Открытый ключ.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchangeParameters.PrivateKey">
+            <summary>
+            Закрытый ключ.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Asn1.Common.GostKeyExchange">
+            <summary>
+            Информация о зашифрованном общем секретном ключе.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchange.SessionEncryptedKey">
+            <summary>
+            Информация о зашифрованном ключе по ГОСТ 28147.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchange.TransportParameters">
+            <summary>
+            Параметры алгоритма цифровой подписи ГОСТ Р 34.10 и алгоритма формирования общего секретного ключа, включая открытый ключ.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Asn1.Common.GostKeyExchangeInfo">
+            <summary>
+            Информация о зашифрованном ключе по ГОСТ 28147.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchangeInfo.EncryptionParamSet">
+            <summary>
+            Идентификатор OID параметров шифрования.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchangeInfo.EncryptedKey">
+            <summary>
+            Зашифрованный ключ.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchangeInfo.Mac">
+            <summary>
+            Контрольная сумма зашифрованного ключа (Message Authentication Code, MAC).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Asn1.Common.GostKeyExchangeInfo.Ukm">
+            <summary>
+            Материал ключа пользователя (User Keying Material, UKM).
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost34112012512HashAlgorithm">
+            <summary>
+            Реализация алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 512 бит.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost3411Prf">
+            <summary>
+            Реализация алгоритма генерации псевдослучайной последовательности (Pseudorandom Function, PRF) по ГОСТ Р 34.11.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.Gost3411Prf.Gost3411PrfComputedKeyUrl">
+            <summary>
+            URI алгоритма для использования в протоколе WS-Trust в качестве алгоритма вычисления ключа.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.Gost3411Prf.Gost3411PrfKeyDerivationUrl">
+            <summary>
+            URI алгоритма для использования в протоколах на базе WS-SecureCoveration.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411Prf.#ctor(System.Byte[],System.Byte[])">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="label">Метка для порождения ключей (аргумент label функции PRF).</param>
+            <param name="seed">Начальное число для порождения ключей (аргумент seed функции PRF).</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411Prf.#ctor(GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase,System.Byte[],System.Byte[])">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="key">Симметричный ключ ГОСТ 28147 для вычисления HMAC на основе алгоритма ГОСТ Р 34.11.</param>
+            <param name="label">Метка для порождения ключей (аргумент label функции PRF).</param>
+            <param name="seed">Начальное число для порождения ключей (аргумент seed функции PRF).</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411Prf.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="key">Симметричный ключ ГОСТ 28147 для вычисления HMAC на основе алгоритма ГОСТ Р 34.11.</param>
+            <param name="label">Метка для порождения ключей (аргумент label функции PRF).</param>
+            <param name="seed">Начальное число для порождения ключей (аргумент seed функции PRF).</param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411Prf.DeriveBytes">
+            <summary>
+            Возаращает 256 байт псевдослучайной последовательности.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411Prf.DeriveKey">
+            <summary>
+            Возвращает псевдослучайный симметричный ключ ГОСТ 28147.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411Prf.DeriveKey(System.Int32)">
+            <summary>
+            Возвращает псевдослучайный симметричный ключ ГОСТ 28147.
+            </summary>
+            <param name="position">Позиция ключа в псевдослучайной последовательности.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Если позиция ключа <paramref name="position"/> не кратна 256 или ключ с требуемой позицией уже был создан.</exception>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost34112012256HashAlgorithm">
+            <summary>
+            Реализация алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 256 бит.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostKeyValue">
+            <summary>
+            Параметры ключа цифровой подписи ГОСТ Р 34.10.
+            Представлен элементом &lt;KeyValue&gt; в XML подписи.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostKeyValue.XmlDsigGostKeyValueUrl">
+            <summary>
+            Наименование ключа цифровой подписи ГОСТ Р 34.10.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostSignatureDescription">
+            <summary>
+            Информация о свойствах цифровой подписи ГОСТ Р 34.10-2001.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.ProviderTypes">
+            <summary>
+            Типы криптографических провайдеров.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.ProviderTypes.VipNet">
+            <summary>
+            Идентификатор типа криптографического провайдера VipNet.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.ProviderTypes.CryptoPro">
+            <summary>
+            Идентификатор типа криптографического провайдера CryptoPro.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost28147CryptoTransform">
+            <summary>
+            Создание объекта криптографического преобразования для алгоритма симметричного шифрования по ГОСТ 28147.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.CspKeyContainerInfoHelper">
+            <summary>
+            Обертка для работы с информацией о контейнере ключей криптографического провайдера.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostCryptoConfig">
+            <summary>
+            Предоставляет методы для доступа к конфигурационной информации, используемой при работе с криптографическим провайдером ГОСТ.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.DefaultEncryptionName">
+            <summary>
+            Наименование алгоритма шифрования по умолчанию.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.DefaultEncryptionOid">
+            <summary>
+            Идентификатор OID алгоритма шифрования по умолчанию.
+            </summary>
+            <remarks>
+            Алгоритм симметричного шифрования по ГОСТ 28147-89.
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.DefaultSignName">
+            <summary>
+            Наименование алгоритма подписи по умолчанию.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.DefaultSignOid">
+            <summary>
+            Идентификатор OID алгоритма подписи по умолчанию.
+            </summary>
+            <remarks>
+            Алгоритм подписи по ГОСТ Р 34.10.
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.DefaultHashName">
+            <summary>
+            Наименование алгоритма хэширования по умолчанию.
+            </summary>
+            <remarks>
+            Алгоритм хэширования по ГОСТ Р 34.11-94.
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.Hash3411Name">
+            <summary>
+            Наименование алгоритма хэширования в соответствии с ГОСТ Р 34.11-94.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.Hash34112012256Name">
+            <summary>
+            Наименование алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 256 бит.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.Hash34112012512Name">
+            <summary>
+            Наименование алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 512 бит.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.DefaultHashOid">
+            <summary>
+            Идентификатор OID алгоритма хэширования по умолчанию.
+            </summary>
+            <remarks>
+            Алгоритм хэширования по ГОСТ Р 34.11-94.
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.Hash3411Oid">
+            <summary>
+            Идентификатор OID алгоритма хэширования в соответствии с ГОСТ Р 34.11-94.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.Hash34112012256Oid">
+            <summary>
+            Идентификатор OID алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 256 бит.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.Hash34112012512Oid">
+            <summary>
+            Идентификатор OID алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 512 бит.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.DefaultHashXmlDsigName">
+            <summary>
+            Идентификатор XmlDsigName алгоритма хэширования по умолчанию.
+            </summary>
+            <remarks>
+            Алгоритм хэширования по ГОСТ Р 34.11-94.
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.Hash3411XmlDsigName">
+            <summary>
+            Идентификатор XmlDsigName алгоритма хэширования в соответствии с ГОСТ Р 34.11-94.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.Hash34112012256XmlDsigName">
+            <summary>
+            Идентификатор XmlDsigName алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 256 бит.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostCryptoConfig.Hash34112012512XmlDsigName">
+            <summary>
+            Идентификатор XmlDsigName алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 512 бит.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostCryptoConfig.#cctor">
+            <summary>
+            Статический конструктор.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.GostCryptoConfig.ProviderType">
+            <summary>
+            Идентификатор типа криптографического провайдера.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase">
+            <summary>
+            Базовый класс для всех реализаций симметричного шифрования по ГОСТ 28147.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase.ComputeHash(System.Security.Cryptography.HashAlgorithm)">
+            <summary>
+            Хэширует секретный ключ.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase.EncodePrivateKey(GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase,GostCryptography.Cryptography.GostKeyExchangeExportMethod)">
+            <summary>
+            Экспортирует (шифрует) секретный ключ.
+            </summary>
+            <param name="keyExchangeAlgorithm">Общий секретный ключ.</param>
+            <param name="keyExchangeExportMethod">Алгоритм экспорта общего секретного ключа.</param>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase.DecodePrivateKey(System.Byte[],GostCryptography.Cryptography.GostKeyExchangeExportMethod)">
+            <summary>
+            Импортирует (дешифрует) секретный ключ.
+            </summary>
+            <param name="encodedKeyExchangeData">Зашифрованный общий секретный ключ.</param>
+            <param name="keyExchangeExportMethod">Алгоритм экспорта общего секретного ключа.</param>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm">
+            <summary>
+            Реализация алгоритма симметричного шифрования по ГОСТ 28147.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.#ctor(System.IntPtr,System.IntPtr)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="provHandle">Дескриптор криптографического провайдера.</param>
+            <param name="keyHandle">Дескриптор ключа симметричного шифрования.</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.#ctor(GostCryptography.Native.SafeProvHandleImpl,GostCryptography.Native.SafeKeyHandleImpl)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="provHandle">Дескриптор криптографического провайдера.</param>
+            <param name="keyHandle">Дескриптор ключа симметричного шифрования.</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.InternalProvHandle">
+            <summary>
+            Приватный дескриптор провайдера.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.ProviderHandle">
+            <summary>
+            Дескрипор провайдера.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.InternalKeyHandle">
+            <summary>
+            Приватный дескриптор ключа симметричного шифрования.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.KeyHandle">
+            <summary>
+            Дескриптор ключа симметричного шифрования.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.Key">
+            <summary>
+            Ключ симметричного шифрования.
+            </summary>
+            <remarks>
+            Если ключ не был задан, то при получении ключа он будет сгенерирован функцией <see cref="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.GenerateKey"/>.
+            </remarks>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.KeySize">
+            <summary>
+            Размер ключа симметричного шифрования.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.DeriveFromPassword(System.Byte[])">
+            <summary>
+            Создает симметричный ключ на основе пароля.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.CreateFromPassword(System.Byte[])">
+            <summary>
+            Создает симметричный ключ на основе пароля.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.ComputeHash(System.Security.Cryptography.HashAlgorithm)">
+            <summary>
+            Хэширует секретный ключ.
+            </summary>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.GenerateIV">
+            <summary>
+            Генерация случайной синхропосылки.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.GenerateKey">
+            <summary>
+            Генерация случайного ключа.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.CreateEncryptor">
+            <summary>
+            Создание объекта криптографического преобразования (шифратора).
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.CreateEncryptor(System.Byte[],System.Byte[])">
+            <summary>
+            Создание объекта криптографического преобразования (шифратора) с заданным ключом и синхропосылкой.
+            </summary>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.CreateDecryptor">
+            <summary>
+            Создание объекта криптографического преобразования (дешифратора).
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.CreateDecryptor(System.Byte[],System.Byte[])">
+            <summary>
+            Создание объекта криптографического преобразования (дешифратора) с заданным ключом и синхропосылкой.
+            </summary>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.DecodePrivateKey(System.Byte[],GostCryptography.Cryptography.GostKeyExchangeExportMethod)">
+            <summary>
+            Импортирует (дешифрует) секретный ключ.
+            </summary>
+            <param name="encodedKeyExchangeData">Зашифрованный секретный ключ.</param>
+            <param name="keyExchangeExportMethod">Алгоритм экспорта общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147SymmetricAlgorithm.EncodePrivateKey(GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase,GostCryptography.Cryptography.GostKeyExchangeExportMethod)">
+            <summary>
+            Экспортирует (шифрует) секретный ключ.
+            </summary>
+            <param name="keyExchangeAlgorithm">Алгоритм симметричного шифрования.</param>
+            <param name="keyExchangeExportMethod">Алгоритм экспорта ключа.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost28147ImitHashAlgorithmBase">
+            <summary>
+            Базовый класс для всех реализаций функции вычисления имитовставки по ГОСТ 28147.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.Gost28147ImitHashAlgorithmBase.DefaultHashSize">
+            <summary>
+            Размер хэша по умолчанию.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147ImitHashAlgorithmBase.KeyAlgorithm">
+            <summary>
+            Алгоритм симметричного шифрования ключа.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost28147ImitHashAlgorithm">
+            <summary>
+            Реализация функции вычисления имитовставки по ГОСТ 28147.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147ImitHashAlgorithm.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147ImitHashAlgorithm.#ctor(System.Byte[])">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="key">Ключ симметричного шифрования для подсчета имитовставки.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost28147ImitHashAlgorithm.#ctor(GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="key">Ключ симметричного шифрования для подсчета имитовставки.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147ImitHashAlgorithm.InternalHashHandle">
+            <summary>
+            Приватный дескриптор функции хэширования.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147ImitHashAlgorithm.HashHandle">
+            <summary>
+            Дескриптор функции хэширования.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147ImitHashAlgorithm.Key">
+            <summary>
+            Ключ симметричного шифрования.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost28147ImitHashAlgorithm.KeyAlgorithm">
+            <summary>
+            Алгоритм симметричного шифрования ключа.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase">
+            <summary>
+            Базовый класс для всех реализаций алгоритма ГОСТ Р 34.10.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.Gost3410SignatureAlgorithm">
+            <summary>
+            Наименование алгоритма цифровой подписи по ГОСТ Р 34.10.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.Gost3410KeyExchangeAlgorithm">
+            <summary>
+            Наименование алгоритма обмена ключами по ГОСТ Р 34.10.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.SignatureAlgorithm">
+            <summary>
+            Алгоритм цифровой подписи.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.KeyExchangeAlgorithm">
+            <summary>
+            Алгоритм обмена ключами.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.CreateSignature(System.Byte[])">
+            <summary>
+            Вычисляет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.VerifySignature(System.Byte[],System.Byte[])">
+            <summary>
+            Проверяет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.CreateKeyExchange(GostCryptography.Asn1.Common.GostKeyExchangeParameters)">
+            <summary>
+            Создает общий секретный ключ.
+            </summary>
+            <param name="keyParameters">Параметры открытого ключа, используемого для создания общего секретного ключа.</param>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.ExportParameters(System.Boolean)">
+            <summary>
+            Экспортирует (шифрует) параметры ключа, используемого для создания общего секретного ключа.
+            </summary>
+            <param name="includePrivateKey">Включить секретный ключ.</param>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.ImportParameters(GostCryptography.Asn1.Common.GostKeyExchangeParameters)">
+            <summary>
+            Импортирует (дешифрует) параметры ключа, используемого для создания общего секретного ключа.
+            </summary>
+            <param name="keyParameters">Параметры ключа, используемого для создания общего секретного ключа.</param>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.ToXmlString(System.Boolean)">
+            <summary>
+            Экспортирует (шифрует) в XML параметры ключа, используемого для создания общего секретного ключа.
+            </summary>
+            <param name="includePrivateKey">Включить секретный ключ.</param>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase.FromXmlString(System.String)">
+            <summary>
+            Импортирует (дешифрует) параметры ключа, используемого для создания общего секретного ключа.
+            </summary>
+            <param name="keyParametersXml">Параметры ключа, используемого для создания общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm">
+            <summary>
+            Реализация алгоритма ГОСТ Р 34.10.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.#ctor(System.Security.Cryptography.CspParameters)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="providerParameters">Параметры криптографического провайдера.</param>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.InternalProvHandle">
+            <summary>
+            Приватный дескриптор провайдера.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.ProviderHandle">
+            <summary>
+            Дескрипор провайдера.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.InternalKeyHandle">
+            <summary>
+            Приватный дескриптор ключа.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.KeyHandle">
+            <summary>
+            Дескриптор ключа.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.KeySize">
+            <summary>
+            Размер ключа.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.IsPersistentKey">
+            <summary>
+            Хранить ключ в криптографическом провайдере.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.IsPublicKeyOnly">
+            <summary>
+            Имеется доступ только к открытому ключу.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.CspKeyContainerInfo">
+            <summary>
+            Информация о контейнере ключей.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.ExportCspBlob(System.Boolean)">
+            <summary>
+            Экспортирует параметры алгоритма в BLOB.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.ImportCspBlob(System.Byte[])">
+            <summary>
+            Импортирует параметры алгоритма в BLOB.
+            </summary>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.CreateSignature(System.Byte[])">
+            <summary>
+            Вычисляет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.CreateSignature(System.Byte[],System.Object)">
+            <summary>
+            Вычисляет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.CreateSignature(System.IO.Stream,System.Object)">
+            <summary>
+            Вычисляет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.CreateSignature(System.Byte[],System.Int32,System.Int32,System.Object)">
+            <summary>
+            Вычисляет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.VerifySignature(System.Byte[],System.Byte[])">
+            <summary>
+            Проверяет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.VerifySignature(System.Byte[],System.Object,System.Byte[])">
+            <summary>
+            Проверяет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.VerifySignature(System.IO.Stream,System.Object,System.Byte[])">
+            <summary>
+            Проверяет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.VerifySignature(System.Byte[],System.Int32,System.Int32,System.Object,System.Byte[])">
+            <summary>
+            Проверяет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.CreateKeyExchange(GostCryptography.Asn1.Common.GostKeyExchangeParameters)">
+            <summary>
+            Создает общий секретный ключ.
+            </summary>
+            <param name="keyParameters">Параметры открытого ключа, используемого для создания общего секретного ключа.</param>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.ExportParameters(System.Boolean)">
+            <summary>
+            Экспортирует (шифрует) параметры ключа, используемого для создания общего секретного ключа.
+            </summary>
+            <param name="includePrivateKey">Включить секретный ключ.</param>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.ImportParameters(GostCryptography.Asn1.Common.GostKeyExchangeParameters)">
+            <summary>
+            Импортирует (дешифрует) параметры ключа, используемого для создания общего секретного ключа.
+            </summary>
+            <param name="keyParameters">Параметры ключа, используемого для создания общего секретного ключа.</param>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410AsymmetricAlgorithm.SetContainerPassword(System.Security.SecureString)">
+            <summary>
+            Установка пароля доступа к контейнеру.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm">
+            <summary>
+            Реализация алгоритма формирования общих ключей на основе алгоритма ГОСТ Р 34.10 и эфимерного ключа.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.#ctor(GostCryptography.Asn1.Common.GostKeyExchangeParameters)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="keyParameters">Параметры ключа, используемого для создания общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <remarks>
+            В параметре <paramref name="keyParameters"/> достаточно передать идентификатор OID параметров хэширования <see cref="F:GostCryptography.Asn1.Common.GostKeyExchangeParameters.DigestParamSet"/>
+            и идентификатор OID параметров открытого ключа <see cref="F:GostCryptography.Asn1.Common.GostKeyExchangeParameters.PublicKeyParamSet"/>. Остальные параметры не используются.
+            </remarks>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.InternalProvHandle">
+            <summary>
+            Приватный дескриптор провайдера.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.ProviderHandle">
+            <summary>
+            Дескрипор провайдера.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.InternalKeyHandle">
+            <summary>
+            Приватный дескриптор ключа.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.KeyHandle">
+            <summary>
+            Дескриптор ключа.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.CreateSignature(System.Byte[])">
+            <summary>
+            Вычисляет цифровую подпись.
+            </summary>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.VerifySignature(System.Byte[],System.Byte[])">
+            <summary>
+            Проверяет цифровую подпись.
+            </summary>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.CreateKeyExchange(GostCryptography.Asn1.Common.GostKeyExchangeParameters)">
+            <summary>
+            Создает общий секретный ключ.
+            </summary>
+            <param name="keyParameters">Параметры открытого ключа, используемого для создания общего секретного ключа.</param>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.ExportParameters(System.Boolean)">
+            <summary>
+            Экспортирует (шифрует) параметры ключа, используемого для создания общего секретного ключа.
+            </summary>
+            <param name="includePrivateKey">Включить секретный ключ.</param>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3410EphemeralAsymmetricAlgorithm.ImportParameters(GostCryptography.Asn1.Common.GostKeyExchangeParameters)">
+            <summary>
+            Импортирует (дешифрует) параметры ключа, используемого для создания общего секретного ключа.
+            </summary>
+            <param name="keyParameters">Параметры ключа, используемого для создания общего секретного ключа.</param>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost3411HashAlgorithmBase">
+            <summary>
+            Базовый класс для всех реализаций алгоритма хэширования ГОСТ Р 34.11.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411HashAlgorithmBase.CreateHashHandle">
+            <summary>
+            Создает дескриптор функции хэширования криптографического провайдера.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3411HashAlgorithmBase.InternalHashHandle">
+            <summary>
+            Приватный дескриптор функции хэширования.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3411HashAlgorithmBase.HashHandle">
+            <summary>
+            Дескриптор функции хэширования.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost3411HashAlgorithm">
+            <summary>
+            Реализация алгоритма хэширования в соответствии с ГОСТ Р 34.11-94.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.Gost3411Hmac">
+            <summary>
+            Реализация HMAC (Hash-based Message Authentication Code) на базе алгоритма хэширования по ГОСТ Р 34.11.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411Hmac.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411Hmac.#ctor(System.Byte[])">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="key">Ключ для вычисления HMAC.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.Gost3411Hmac.#ctor(GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="keyAlgorithm">Алгоритм для вычисления HMAC.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3411Hmac.InternalHashHandle">
+            <summary>
+            Приватный дескриптор функции хэширования.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3411Hmac.HashHandle">
+            <summary>
+            Дескриптор функции хэширования.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3411Hmac.KeyAlgorithm">
+            <summary>
+            Алгоритм для вычисления HMAC.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Cryptography.Gost3411Hmac.Key">
+            <summary>
+            Ключ для вычисления HMAC.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostKeyExchangeDeformatter">
+            <summary>
+            Реализует дешифрацию общего секретного ключа по ГОСТ Р 34.10.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeDeformatter.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeDeformatter.#ctor(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="privateKey">Секретный ключ для расшифровки общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:GostCryptography.Cryptography.GostKeyExchangeDeformatter.Parameters">
+            <summary>
+            Параметры алгоритма.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeDeformatter.SetKey(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+            Устанавливает секретный ключ для расшифровки общего секретного ключа.
+            </summary>
+            <param name="privateKey">Секретный ключ для расшифровки общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeDeformatter.DecryptKeyExchange(System.Byte[])">
+            <summary>
+            Дешифрует общий секретный ключ.
+            </summary>
+            <param name="encryptedKeyExchangeData">Зашифрованный общий секретный ключ.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeDeformatter.DecryptKeyExchangeAlgorithm(System.Byte[])">
+            <summary>
+            Дешифрует общий секретный ключ.
+            </summary>
+            <param name="encryptedKeyExchangeData">Зашифрованный общий секретный ключ.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeDeformatter.DecryptKeyExchangeAlgorithm(GostCryptography.Asn1.Common.GostKeyExchange)">
+            <summary>
+            Дешифрует общий секретный ключ.
+            </summary>
+            <param name="encryptedKeyExchangeInfo">Зашифрованный общий секретный ключ.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostKeyExchangeFormatter">
+            <summary>
+            Реализует шифрацию общего секретного ключа по ГОСТ Р 34.10.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeFormatter.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeFormatter.#ctor(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="publicKey">Открытый ключ для шифрации общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:GostCryptography.Cryptography.GostKeyExchangeFormatter.Parameters">
+            <summary>
+            Параметры алгоритма.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeFormatter.SetKey(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+            Устанавливает открытый ключ для шифрации общего секретного ключа.
+            </summary>
+            <param name="publicKey">Открытый ключ для шифрации общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeFormatter.CreateKeyExchange(System.Byte[])">
+            <summary>
+            Шифрует общий секретный ключ.
+            </summary>
+            <param name="keyExchangeData">Общий секретный ключ.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeFormatter.CreateKeyExchange(System.Byte[],System.Type)">
+            <summary>
+            Шифрует общий секретный ключ.
+            </summary>
+            <param name="keyExchangeData">Общий секретный ключ.</param>
+            <param name="keyExchangeAlgorithmType">Тип алгоритма шифрации общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeFormatter.CreateKeyExchangeData(System.Security.Cryptography.SymmetricAlgorithm)">
+            <summary>
+            Шифрует общий секретный ключ.
+            </summary>
+            <param name="keyExchangeAlgorithm">Алгоритм шифрации общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeFormatter.CreateKeyExchangeInfo(System.Security.Cryptography.SymmetricAlgorithm)">
+            <summary>
+            Шифрует общий секретный ключ.
+            </summary>
+            <param name="keyExchangeAlgorithm">Алгоритм шифрации общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostKeyExchangeExportMethod">
+            <summary>
+            Алгоритм экспорта общего секретного ключа.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostKeyExchangeExportMethod.GostKeyExport">
+            <summary>
+            Простой экспорт ключа по ГОСТ 28147-89.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Cryptography.GostKeyExchangeExportMethod.CryptoProKeyExport">
+            <summary>
+            Защищённый экспорт ключа по алгоритму КриптоПро.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostKeyExchangeAlgorithmBase">
+            <summary>
+            Базовый класс для всех реализаций общего секретного ключа.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeAlgorithmBase.EncodeKeyExchange(System.Security.Cryptography.SymmetricAlgorithm,GostCryptography.Cryptography.GostKeyExchangeExportMethod)">
+            <summary>
+            Экспортирует (шифрует) общий секретный ключ.
+            </summary>
+            <param name="keyExchangeAlgorithm">Общий секретный ключ.</param>
+            <param name="keyExchangeExportMethod">Алгоритм экспорта общего секретного ключа.</param>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeAlgorithmBase.DecodeKeyExchange(System.Byte[],GostCryptography.Cryptography.GostKeyExchangeExportMethod)">
+            <summary>
+            Импортирует (дешифрует) общий секретный ключ.
+            </summary>
+            <param name="encodedKeyExchangeData">Общий секретный ключ.</param>
+            <param name="keyExchangeExportMethod">Алгоритм экспорта общего секретного ключа.</param>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostKeyExchangeAlgorithm">
+            <summary>
+            Реализация общего секретного ключа.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeAlgorithm.EncodeKeyExchange(System.Security.Cryptography.SymmetricAlgorithm,GostCryptography.Cryptography.GostKeyExchangeExportMethod)">
+            <summary>
+            Экспортирует (шифрует) общий секретный ключ.
+            </summary>
+            <param name="keyExchangeAlgorithm">Общий секретный ключ.</param>
+            <param name="keyExchangeExportMethod">Алгоритм экспорта общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostKeyExchangeAlgorithm.DecodeKeyExchange(System.Byte[],GostCryptography.Cryptography.GostKeyExchangeExportMethod)">
+            <summary>
+            Импортирует (дешифрует) общий секретный ключ.
+            </summary>
+            <param name="encodedKeyExchangeData">Общий секретный ключ.</param>
+            <param name="keyExchangeExportMethod">Алгоритм экспорта общего секретного ключа.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostSignatureDeformatter">
+            <summary>
+            Класс проверки цифровой подписи по ГОСТ Р 34.10-2001.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureDeformatter.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureDeformatter.#ctor(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="publicKey">Открытый ключ для проверки цифровой подписи.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureDeformatter.SetKey(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+            Устанавливает открытый ключ для проверки цифрововй подписи.
+            </summary>
+            <param name="publicKey">Открытый ключ для проверки цифровой подписи.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureDeformatter.SetHashAlgorithm(System.String)">
+            <summary>
+            Устанавливает алгоритм хэширования для проверки цифрововй подпси.
+            </summary>
+            <param name="hashAlgorithmName">Наименование алгоритма хэширования.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureDeformatter.VerifySignature(System.Byte[],System.Byte[])">
+            <summary>
+            Проверяет цифровую подпись.
+            </summary>
+            <param name="hash">Значение хэша данных.</param>
+            <param name="signature">Значение цифровой подписи данных.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:GostCryptography.Cryptography.GostSignatureFormatter">
+            <summary>
+            Класс вычисления цифровой подписи по ГОСТ Р 34.10-2001.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureFormatter.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureFormatter.#ctor(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="privateKey">Закрытый ключ для вычисления цифровой подписи.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureFormatter.SetKey(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+            Устанавливает закрытый ключ для вычисления цифрововй подписи.
+            </summary>
+            <param name="privateKey">Закрытый ключ для вычисления цифровой подписи.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureFormatter.SetHashAlgorithm(System.String)">
+            <summary>
+            Устанавливает алгоритм хэширования для вычисления цифрововй подписи.
+            </summary>
+            <param name="hashAlgorithmName">Наименование алгоритма хэширования.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:GostCryptography.Cryptography.GostSignatureFormatter.CreateSignature(System.Byte[])">
+            <summary>
+            Вычисляет цифровую подпись.
+            </summary>
+            <param name="hash">Значение хэша данных.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:GostCryptography.Native.CryptoApiHelper">
+            <summary>
+            Вспомогательные методы для работы с Microsoft CryptoAPI.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Native.Constants">
+            <summary>
+            Константы для работы с криптографическим провайдером.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_DH_EL_SF">
+            <summary>
+            Идентификатор алгоритма обмена ключей по Диффи-Хеллману на базе закрытого ключа пользователя. Открытый ключ получается по ГОСТ Р 34.10 2001.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_DH_GR3410_2012_256_SF">
+            <summary>
+            Идентификатор алгоритма обмена ключей по Диффи-Хеллману на базе закрытого ключа пользователя. Открытый ключ получается по ГОСТ Р 34.10 2012 (256 бит).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_DH_GR3410_2012_512_SF">
+            <summary>
+            Идентификатор алгоритма обмена ключей по Диффи-Хеллману на базе закрытого ключа пользователя. Открытый ключ получается по ГОСТ Р 34.10 2012 (512 бит).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_DH_EL_EPHEM">
+            <summary>
+            Идентификатор алгоритма обмена ключей по Диффи-Хеллману на базе закрытого ключа эфемерной пары. Открытый ключ получается по ГОСТ Р 34.10 2001.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_DH_GR3410_12_256_EPHEM">
+            <summary>
+            Идентификатор алгоритма обмена ключей по Диффи-Хеллману на базе закрытого ключа эфемерной пары. Открытый ключ получается по ГОСТ Р 34.10 2012 (256 бит).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_DH_GR3410_12_512_EPHEM">
+            <summary>
+            Идентификатор алгоритма обмена ключей по Диффи-Хеллману на базе закрытого ключа эфемерной пары. Открытый ключ получается по ГОСТ Р 34.10 2012 (512 бит).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3410EL">
+            <summary>
+            Идентификатор алгоритма ЭЦП по ГОСТ Р 34.10-2001.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3410_2012_256">
+            <summary>
+            Идентификатор алгоритма ЭЦП по ГОСТ Р 34.10-2012 (256 бит).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3410_2012_512">
+            <summary>
+            Идентификатор алгоритма ЭЦП по ГОСТ Р 34.10-2012 (512 бит).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3411">
+            <summary>
+            Идентификатор алгоритма хэширования в соответствии с ГОСТ Р 34.11-94.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3411_2012_256">
+            <summary>
+            Идентификатор алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 256 бит.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3411_2012_512">
+            <summary>
+            Идентификатор алгоритма хэширования в соответствии с ГОСТ Р 34.11-2012, длина выхода 512 бит.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3411_HMAC">
+            <summary>
+            Идентификатор алгоритма ключевого хэширования (HMAC, Hash-based Message Authentication Code) на базе алгоритма ГОСТ Р 34.11-94 и сессионного ключа <see cref="F:GostCryptography.Native.Constants.CALG_G28147"/>.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3411_2012_256_HMAC">
+            <summary>
+            Идентификатор алгоритма ключевого хэширования (HMAC, Hash-based Message Authentication Code) на базе алгоритма ГОСТ Р 34.11-94 и сессионного ключа <see cref="F:GostCryptography.Native.Constants.CALG_G28147"/>, длина выхода 256 бит.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3411_2012_512_HMAC">
+            <summary>
+            Идентификатор алгоритма ключевого хэширования (HMAC, Hash-based Message Authentication Code) на базе алгоритма ГОСТ Р 34.11-94 и сессионного ключа <see cref="F:GostCryptography.Native.Constants.CALG_G28147"/>, длина выхода 512 бит.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_GR3411_HMAC34">
+            <summary>
+            Идентификатор алгоритма ключевого хэширования (HMAC, Hash-based Message Authentication Code) на базе алгоритма хэширования по ГОСТ Р 34.11.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_G28147">
+            <summary>
+            Идентификатор алгоритма симметричного шифрования по ГОСТ 28147-89.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_G28147_IMIT">
+            <summary>
+            Идентификатор алгоритма вычисления имитовставки по ГОСТ 28147-89 (устаревшая версия).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_PRO_EXPORT">
+            <summary>
+            Идентификатор алгоритма экспорта ключа КриптоПро.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CALG_SIMPLE_EXPORT">
+            <summary>
+            Идентификатор алгоритма экспорта ключа по ГОСТ 28147-89.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_NEWKEYSET">
+            <summary>
+            Создать новый ключевой контейнер.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_MACHINE_KEYSET">
+            <summary>
+            Использовать ключи локальной машины.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_VERIFYCONTEXT">
+            <summary>
+            Получить доступ к провайдеру без необходимости доступа к приватным ключам.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.PP_DELETE_KEYSET">
+            <summary>
+            Удаляет текущий контейнер с носителя.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.PP_KEYEXCHANGE_PIN">
+            <summary>
+            Задаёт пароль (PIN) для доступа к ключу AT_KEYEXCHANGE.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.PP_SIGNATURE_PIN">
+            <summary>
+            Задаёт пароль (PIN) для доступа к ключу AT_SIGNATURE.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.HP_HASHSTARTVECT">
+            <summary>
+            Стартовый вектор функции хэширования, устанавливаемый приложением.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.HP_HASHVAL">
+            <summary>
+            Значение функции хэширования в little-endian порядке байт в соотвествии с типом GostR3411-94-Digest CPCMS [RFC 4490].
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.EL_SIZE">
+            <summary>
+            Размер элемента.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.G28147_MAGIC">
+            <summary>
+            Признак ключей ГОСТ 28147-89 и мастер ключей TLS.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.GR3410_1_MAGIC">
+            <summary>
+            Признак ключей ГОСТ Р 34.10-94 и ГОСТ Р 34.10-2001.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.SIMPLEBLOB">
+            <summary>
+            Используется для транспортировки симметричных ключей CALG_G28147, CALG_UECSYMMETRIC.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.PUBLICKEYBLOB">
+            <summary>
+            Используется для транспортировки открытых ключей.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.KP_IV">
+            <summary>
+            Вектор инициализации (IV, синхропосылки) алгоритма шифрования.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.KP_PADDING">
+            <summary>
+            Метод дополнения шифра ключа.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.KP_MODE">
+            <summary>
+            Режим шифра ключа.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.KP_ALGID">
+            <summary>
+            Идентификатор алгоритма ключа.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.KP_CIPHEROID">
+            <summary>
+            Строковый идентификатор узла замены.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.KP_DHOID">
+            <summary>
+            Строковый идентификатор параметров ключа ГОСТ Р 34.10-2001, применяемых в алгоритме Диффи-Хеллмана.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.KP_HASHOID">
+            <summary>
+            Строковый идентификатор функции хэширования.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.KP_X">
+            <summary>
+            Закрытый ключ в ключевой паре.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_EXPORTABLE">
+            <summary>
+            Произведенный ключ может быть передан из криптопровайдера в ключевой блоб при экспорте ключа независимо сессии криптопровайдера (исключает CRYPT_ARCHIVABLE).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_ARCHIVABLE">
+            <summary>
+            Произведенный ключ может быть передан из криптопровайдера в ключевой блоб при экспорте ключа в раках одной сессии криптопровайдера (исключает CRYPT_EXPORTABLE).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_USER_PROTECTED">
+            <summary>
+            При любом запросе на доступ к носителю закрытого ключа пользователя выводится окно диалога, запрашивающего право доступа к ключу.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_PREGEN">
+            <summary>
+            Генерация пустой ключевой пары обмена.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.AT_KEYEXCHANGE">
+            <summary>
+            Пара ключей для обмена ключами.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.AT_SIGNATURE">
+            <summary>
+            Пара ключей для формирования цифровой подписи
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.PKCS5_PADDING">
+            <summary>
+            PKCS#5.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.RANDOM_PADDING">
+            <summary>
+            Дополнение случайными байтами.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.ZERO_PADDING">
+            <summary>
+            Дополнение нулевыми байтами.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_MODE_CBC">
+            <summary>
+            Cipher Block Chaining (CBC).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_MODE_ECB">
+            <summary>
+            Electronic codebook (ECB).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_MODE_OFB">
+            <summary>
+            Output Feedback (OFB).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_MODE_CFB">
+            <summary>
+            Cipher Feedback (CFB).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.CRYPT_MODE_CTS">
+            <summary>
+            Ciphertext stealing (CTS).
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.NTE_BAD_ALGID">
+            <summary>
+            Aлгоритм, который данный криптопровайдер не поддерживает.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.NTE_BAD_DATA">
+            <summary>
+            Данные некорректного размера.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.NTE_BAD_HASH">
+            <summary>
+            Дескриптор хэша ошибочен.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.NTE_BAD_KEYSET">
+            <summary>
+            Ключевой контейнер не был открыт или не существует.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.NTE_KEYSET_NOT_DEF">
+            <summary>
+            Ключевой контейнер с заданным именем не существует.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.NTE_NO_KEY">
+            <summary>
+            Ключ с заданным параметром (AT_KEYEXCHANGE, AT_SIGNATURE или AT_UECSYMMETRICKEY) не существует.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Native.Constants.SCARD_W_CANCELLED_BY_USER">
+            <summary>
+            Пользователь прервал операцию.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Native.SafeHashHandleImpl">
+            <summary>
+            Дескриптор функции хэширования криптографического провайдера.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Native.SafeKeyHandleImpl">
+            <summary>
+            Дескриптор ключа криптографического провайдера.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Native.SafeProvHandleImpl">
+            <summary>
+            Дескриптор криптографического провайдера.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Native.CryptoApi">
+            <summary>
+            Функции для работы с Microsoft CryptoAPI.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Pkcs.GostSignedCms">
+            <summary>
+            Реализует методы для работы с сообщениями CMS (Cryptographic Message Syntax) / PKCS #7 (Public-Key Cryptography Standard #7).
+            </summary>
+            <remarks>
+            CMS (Cryptographic Message Syntax) или PKCS #7 (Public-Key Cryptography Standard #7) - это стандарт, поддерживаемый RSA Laboratories,
+            который описываемый синтаксис криптографических сообщений. Синтаксис CMS описывает способы формирования криптографических сообщений, 
+            в результате чего сообщение становится полностью самодостаточным для его открытия и выполнения всех необходимых операций. С этой целью 
+            в CMS-сообщении размещается информация об исходном сообщении, алгоритмах хэширования и подписи, параметрах криптоалгоритмов, времени
+            подписи, сертификат ключа электронной подписи, цепочка сертификации и т.д. Большинство из перечисленных атрибутов CMS-сообщения являются
+            опциональными, но их обязательность может определяться прикладной системой. Отдельно следует отметить, что CMS/PKCS#7 позволяет ставить 
+            несколько подписей под одним документом, сохраняя всю необходимую информацию в сообщении. 
+            </remarks>
+        </member>
+        <member name="T:GostCryptography.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.AlgorithmNotAvailable">
+            <summary>
+              Ищет локализованную строку, похожую на Cryptographic service provider (CSP) could not be found for this algorithm..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1ConsVioException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 element &apos;{0}&apos; with value &apos;{1}&apos; violates defined constraint..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1DecodeAlg">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 encoded byte array contains algorithm identifier with unknown OID &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1DecodeAlgorithmParameters">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 encoded byte array does not contains algorithm parameters..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1DecodeError">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 encoded byte array contains invalid structure &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1EncodeError">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 encode &apos;{0}&apos; error..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1EncodeErrorWithValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 encode &apos;{0}&apos; error. Source value: &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1EndOfBufferException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 decode error. Unexpected end-of-buffer encountered. Offset {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1FractionNotSupportedForUtcTime">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 fraction doesn&apos;t supported for UTCTime..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1HoursExpected">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 hours expected..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1IllegalCharacter">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 illegal character &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1IllegalDigit">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 illegal digit in BigInteger..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1IllegalEmbeddedMinusSign">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 illegal embedded minus sign in BigInteger..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1IntegerValueIsTooLarge">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 integer value is too large..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidCenturyValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid century value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidChoiceOptionException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 Object assigned to value not in CHOICE..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidChoiceOptionTagException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 decode error. Element with tag &apos;{0}&apos; not in CHOICE. Offset: {1}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidDateFormat">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid date format..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidDayValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid day value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidDayValueForMonthAndYear">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid day value: {0} for month {1} and year {2}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidDecimalMark">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid decimal mark..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidDiffHour">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid DiffHour..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidDiffHourValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid DiffHour value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidDiffMinute">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid DiffMinute..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidDiffMinuteValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid DiffMinute value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidEncodedDataLength">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 encoded data length must be a multiple of four..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidFormatForBigIntegerValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid format for BigInteger value..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidFormatOfBitString">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid format of bit string: initial octet is invalid ({0})..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidFormatOfConstructedValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 decode error. ASN.1 invalid format of constructed value. Offset: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidHourValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid hour value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidLengthException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 decode error: Invalid length value..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidMinuteValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid minute value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidMonthValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid month value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidMonthValueForDayAndYear">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid month value: {0} for day {1} and year {2}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidNumberFormat">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid number format..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidObjectIdException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid object identifier value..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidSecondValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid second value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidTagValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid tag value: too big..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidYearValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid year value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1InvalidYearValueForDayAndMonth">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid year value: {0} for day {1} and month {2}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1MinutesExpected">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 minutes expected..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1MissingRequiredException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 decode error. SEQUENCE or SET is missing a required element. Offset: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1ReadOutputStreamNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 read output stream not supported..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1SeqOrderException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 elements in SEQUENCE not in correct order..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1TableConstraint">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 table constraint: parameters decode failed..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1TagMatchFailedException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 decode error. Tag match failed: expected &apos;{0}&apos;, parsed &apos;{1}&apos;. Offset {2}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1TimeStringCouldNotBeGenerated">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 time string could not be generated..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1TooBigIntegerValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 too big integer value (length is {0})..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1UnexpectedSymbol">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 unexpected &apos;.&apos; or &apos;,&apos;..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1UnexpectedValuesAtEndOfString">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 unexpected values at end of string..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1UnexpectedZoneOffset">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 unexpected zone offset in DER/CER/PER time string..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1ValueParseException">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 value parse failed. String: &apos;{0}&apos;. Offset: {1}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Asn1ZeroLengthBigInteger">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 zero length BigInteger..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.CipherTextSteamingNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на Cipher Text Steaming mode (CTS) is not supported by this implementation..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.DecryptInvalidDataSize">
+            <summary>
+              Ищет локализованную строку, похожую на Length of the data to decrypt is invalid..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.EncryptInvalidDataSize">
+            <summary>
+              Ищет локализованную строку, похожую на Length of the data to encrypt is invalid..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.EphemKeyOperationNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на Cryptography operation is not supported on ephemeral key..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Gost28147UnsafeCreateDecryptorNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на Bulk session key import from CSP is not supported. Use safe method CreateDecryptor() with DecodePrivateKey()..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.Gost28147UnsafeCreateEncryptor">
+            <summary>
+              Ищет локализованную строку, похожую на Bulk session key import from CSP is not supported. Use safe method CreateEncryptor() with EncodePrivateKey()..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.IncorrectFeedbackSize">
+            <summary>
+              Ищет локализованную строку, похожую на Feedback size for the cipher feedback mode (CFB) must be 8 bits..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.InvalidCspProviderFlags">
+            <summary>
+              Ищет локализованную строку, похожую на Value of CspProviderFlags is invalid..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.InvalidDataOffset">
+            <summary>
+              Ищет локализованную строку, похожую на Offset and length were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.InvalidDiffValue">
+            <summary>
+              Ищет локализованную строку, похожую на ASN.1 invalid Diff value: {0}..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.InvalidFromXmlString">
+            <summary>
+              Ищет локализованную строку, похожую на Input string does not contain a valid encoding of the &apos;{0}&apos; parameter..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.InvalidHashAlgorithm">
+            <summary>
+              Ищет локализованную строку, похожую на Invalid hash algorithm..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.InvalidHashSize">
+            <summary>
+              Ищет локализованную строку, похожую на GOST R 34.11-94 algorithm hash size is 32 bytes..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.InvalidIvSize">
+            <summary>
+              Ищет локализованную строку, похожую на Specified initialization vector (IV) does not match the block size for this algorithm..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.InvalidPaddingMode">
+            <summary>
+              Ищет локализованную строку, похожую на Specified padding mode is not valid for this algorithm..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.InvalidString">
+            <summary>
+              Ищет локализованную строку, похожую на CSP return invalid string..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.KeyAlgorithmNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на The specified cryptographic service provider (CSP) does not support this key algorithm..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.NoPrivateKey">
+            <summary>
+              Ищет локализованную строку, похожую на Object contains only the public half of a key pair. A private key must also be provided..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.RequiredGost28147">
+            <summary>
+              Ищет локализованную строку, похожую на Required GOST 28147 key handle..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.RequiredGost3411">
+            <summary>
+              Ищет локализованную строку, похожую на GOST R 34.10 requires GOST R 34.11 hash..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.RequiredGostHash">
+            <summary>
+              Ищет локализованную строку, похожую на Hash algorithm must be GOST R 34.11, GOST R 34.11 HMAC or GOST R 34.11 Imit..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.ShouldSupportGost3410">
+            <summary>
+              Ищет локализованную строку, похожую на Parameter must support GOST R 34.10 algorithm..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.SymmetryExportBulkKeyNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на Bulk session key export from CSP is not supported..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.SymmetryImportBulkKeyNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на Bulk session key import from CSP is not supported..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.UserExportBulkBlob">
+            <summary>
+              Ищет локализованную строку, похожую на Bulk private key blob export is not supported..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.UserExportBulkKeyNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на Bulk user key export from CSP is not supported..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.UserImportBulkBlob">
+            <summary>
+              Ищет локализованную строку, похожую на Bulk private key blob import is not supported..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.UserImportBulkKeyNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на Bulk user key import to CSP is not supported..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.UserInteractiveNotSupported">
+            <summary>
+              Ищет локализованную строку, похожую на The current session is not interactive..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.XmlCannotFindPrivateMember">
+            <summary>
+              Ищет локализованную строку, похожую на Cannot find private member &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.XmlKeyInfoRequired">
+            <summary>
+              Ищет локализованную строку, похожую на A KeyInfo element is required to check the signature..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.XmlMissingAlgorithm">
+            <summary>
+              Ищет локализованную строку, похожую на Symmetric algorithm is not specified..
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Properties.Resources.XmlMissingDecryptionKey">
+            <summary>
+              Ищет локализованную строку, похожую на Unable to retrieve the decryption key..
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Xml.GetIdElementDelegate">
+            <summary>
+            Возвращает XML-элемент с указанным идентификатором.
+            </summary>
+            <param name="document">Документ для поиска идентификатора элемента.</param>
+            <param name="idValue">Значение идентификатора элемента.</param>
+        </member>
+        <member name="T:GostCryptography.Xml.GostEncryptedXml">
+            <summary>
+            Объект для шифрации и дешифрации XML по ГОСТ 34.10.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Xml.GostEncryptedXml.XmlEncGostNamespaceUrl">
+            <summary>
+            URI пространства имен для синтаксиса и правил обработки при шифровании XML по ГОСТ.
+            </summary>
+            <remarks>
+            Значение равно "urn:ietf:params:xml:ns:cpxmlsec:algorithms:".
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Xml.GostEncryptedXml.XmlEncGostKeyExportUrl">
+            <summary>
+            URI алгоритма экспорта ключа по ГОСТ 28147-89.
+            </summary>
+            <remarks>
+            Значение равно "urn:ietf:params:xml:ns:cpxmlsec:algorithms:kw-gost".
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Xml.GostEncryptedXml.XmlEncGostCryptoProKeyExportUrl">
+            <summary>
+            URI алгоритма экспорта ключа КриптоПро.
+            </summary>
+            <remarks>
+            Значение равно "urn:ietf:params:xml:ns:cpxmlsec:algorithms:kw-cp".
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Xml.GostEncryptedXml.XmlEncGost28147Url">
+            <summary>
+            URI алгоритма симметричного шифрования по ГОСТ 28147.
+            </summary>
+            <remarks>
+            Значение равно "urn:ietf:params:xml:ns:cpxmlsec:algorithms:gost28147".
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Xml.GostEncryptedXml.XmlEncGostKeyTransportUrl">
+            <summary>
+            URI алгоритма транспортировки ключей шифрования.
+            </summary>
+            <remarks>
+            Значение равно "urn:ietf:params:xml:ns:cpxmlsec:algorithms:transport-gost2001".
+            </remarks>
+        </member>
+        <member name="P:GostCryptography.Xml.GostEncryptedXml.DocumentEvidence">
+            <summary>
+            Сведения безопасности документа.
+            </summary>
+            <remarks>
+            Имеет тот же смысл, что и <see cref="P:System.Security.Cryptography.Xml.EncryptedXml.DocumentEvidence"/>.
+            </remarks>
+        </member>
+        <member name="P:GostCryptography.Xml.GostEncryptedXml.Resolver">
+            <summary>
+            Объект для разрешения внешних XML-ссылок.
+            </summary>
+            <remarks>
+            Имеет тот же смысл, что и <see cref="P:System.Security.Cryptography.Xml.EncryptedXml.Resolver"/>.
+            </remarks>
+        </member>
+        <member name="P:GostCryptography.Xml.GostEncryptedXml.Padding">
+            <summary>
+            Режим дополнения.
+            </summary>
+            <remarks>
+            Имеет тот же смысл, что и <see cref="P:System.Security.Cryptography.Xml.EncryptedXml.Padding"/>.
+            </remarks>
+        </member>
+        <member name="P:GostCryptography.Xml.GostEncryptedXml.Mode">
+            <summary>
+            Режим шифрования.
+            </summary>
+            <remarks>
+            Имеет тот же смысл, что и <see cref="P:System.Security.Cryptography.Xml.EncryptedXml.Mode"/>.
+            </remarks>
+        </member>
+        <member name="P:GostCryptography.Xml.GostEncryptedXml.Encoding">
+            <summary>
+            Кодировка символов.
+            </summary>
+            <remarks>
+            Имеет тот же смысл, что и <see cref="P:System.Security.Cryptography.Xml.EncryptedXml.Encoding"/>.
+            </remarks>
+        </member>
+        <member name="P:GostCryptography.Xml.GostEncryptedXml.Recipient">
+            <summary>
+            Получатель данных о зашифрованном ключе.
+            </summary>
+            <remarks>
+            Имеет тот же смысл, что и <see cref="P:System.Security.Cryptography.Xml.EncryptedXml.Recipient"/>.
+            </remarks>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.Encrypt(System.Xml.XmlElement,System.String)">
+            <summary>
+            Шифрует XML-элемент с помощью ключа с указанным именем.
+            </summary>
+            <param name="element">Шифруемый XML-элемент.</param>
+            <param name="keyName">Имя ключа для шифрования XML-элемента.</param>
+            <returns>Зашифрованное представление XML-элемента.</returns>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.Encrypt(System.Xml.XmlElement,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Шифрует XML-элемент с помощью сертификата.
+            </summary>
+            <param name="element">Шифруемый XML-элемент.</param>
+            <param name="certificate">Сертификат X.509 для шифрования XML-элемента.</param>
+            <returns>Зашифрованное представление XML-элемента.</returns>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.EncryptData(System.Byte[],System.Security.Cryptography.SymmetricAlgorithm)">
+            <summary>
+            Шифрует данные с помощью указанного симметричного ключа.
+            </summary>
+            <param name="data">Шифруемые данные.</param>
+            <param name="symmetricKey">Симметричный ключ для шифрования данных.</param>
+            <returns>Массив байт, содержащий зашифрованные данные.</returns>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.EncryptData(System.Xml.XmlElement,System.Security.Cryptography.SymmetricAlgorithm,System.Boolean)">
+            <summary>
+            Шифрует XML-элемент с помощью указанного симметричного ключа.
+            </summary>
+            <param name="element">Шифруемый XML-элемент.</param>
+            <param name="symmetricKey">Симметричный ключ для шифрования XML-элемента.</param>
+            <param name="content">Значение true для шифрования только содержимого элемента; значение false для шифрования всего элемента.</param>
+            <returns>Массив байт, содержащий зашифрованные данные.</returns>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.EncryptKey(System.Byte[],System.Security.Cryptography.SymmetricAlgorithm)">
+            <summary>
+            Шифрует сессионный ключ с помощью указанного общего симметричного ключа.
+            </summary>
+            <param name="keyData">Шифруемый сессионный ключ.</param>
+            <param name="sharedKey">Общий симметричный ключ для шифрования сессионного ключа.</param>
+            <returns>Массив байт, содержащий зашифрованный сессионный ключ.</returns>
+            <remarks>Как правило сессионный ключ используется для шифрования данных и в свою очередь так же шифруется.</remarks>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.EncryptKey(System.Byte[],System.Security.Cryptography.RSA,System.Boolean)">
+            <summary>
+            Шифрует сессионный ключ с помощью указанного асимметричного ключа RSA.
+            </summary>
+            <param name="keyData">Шифруемый сессионный ключ.</param>
+            <param name="publicKey">Открытый ключ RSA для шифрования сессионного ключа.</param>
+            <param name="useOaep">Значение, указывающее, следует ли использовать заполнение OAEP (Optimal Asymmetric Encryption Padding).</param>
+            <returns>Массив байт, содержащий зашифрованный сессионный ключ.</returns>
+            <remarks>Как правило сессионный ключ используется для шифрования данных и в свою очередь так же шифруется.</remarks>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.EncryptKey(GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase,GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase)">
+            <summary>
+            Шифрует сессионный ключ с помощью указанного асимметричного ключа ГОСТ Р 34.10.
+            </summary>
+            <param name="sessionKey">Шифруемый сессионный ключ.</param>
+            <param name="publicKey">Открытый ключ ГОСТ Р 34.10 для шифрования сессионного ключа.</param>
+            <returns>Массив байт, содержащий зашифрованный сессионный ключ.</returns>
+            <remarks>Как правило сессионный ключ используется для шифрования данных и в свою очередь так же шифруется.</remarks>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.EncryptKey(GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase,GostCryptography.Cryptography.Gost28147SymmetricAlgorithmBase,GostCryptography.Cryptography.GostKeyExchangeExportMethod)">
+            <summary>
+            Шифрует сессионный ключ с помощью указанного симметричного ключа ГОСТ 28147.
+            </summary>
+            <param name="sessionKey">Шифруемый сессионный ключ.</param>
+            <param name="sharedKey">Общий симметричный ключ ГОСТ 28147 для шифрования сессионного ключа.</param>
+            <param name="exportMethod">Алгоритм экспорта сессионного ключа.</param>
+            <returns>Массив байт, содержащий зашифрованный сессионный ключ.</returns>
+            <remarks>Как правило сессионный ключ используется для шифрования данных и в свою очередь так же шифруется.</remarks>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.DecryptData(System.Security.Cryptography.Xml.EncryptedData,System.Security.Cryptography.SymmetricAlgorithm)">
+            <summary>
+            Расшифровывает зашифрованный XML-элемент с помощью указанного симметричного ключа.
+            </summary>
+            <param name="encryptedData">Зашифрованное представление XML-элемента.</param>
+            <param name="symmetricKey">Симметричный ключ для расшифровки данных.</param>
+            <returns>Массив байт, содержащий расшифрованный XML-элемент.</returns>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.DecryptDocument">
+            <summary>
+            Расшифровывает все зашифрованные XML-элементы документа.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.GetDecryptionIV(System.Security.Cryptography.Xml.EncryptedData,System.String)">
+            <summary>
+            Возвращает вектор инициализации для расшифровки XML-элемента.
+            </summary>
+            <param name="encryptedData">Зашифрованное представление XML-элемента.</param>
+            <param name="symmetricAlgorithmUri">URI алгоритма шифрования.</param>
+            <returns>Массив байт, содержащий вектор инициализации для расшифровки XML-элемента.</returns>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.GetDecryptionKey(System.Security.Cryptography.Xml.EncryptedData,System.String)">
+            <summary>
+            Возвращает симметричный ключ для расшифровки XML-элемента.
+            </summary>
+            <param name="encryptedData">Зашифрованное представление XML-элемента.</param>
+            <param name="symmetricAlgorithmUri">URI алгоритма шифрования.</param>
+            <returns>Симметричный ключ для расшифровки XML-элемента.</returns>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.DecryptEncryptedKey(System.Security.Cryptography.Xml.EncryptedKey)">
+            <summary>
+            Извлекает ключ из элемента &lt;EncryptedKey&gt;.
+            </summary>
+            <param name="encryptedKey">Элемент &lt;EncryptedKey&gt; с информацией о ключе шифрования.</param>
+            <returns>Массив байт, содержащий ключ для расшифровки.</returns>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.DecryptKey(System.Byte[],System.Security.Cryptography.SymmetricAlgorithm)">
+            <summary>
+            Расшифровывает сессионный ключ с помощью указанного общего симметричного ключа.
+            </summary>
+            <param name="keyData">Массив байт, содержащий зашифрованный сессионный ключ.</param>
+            <param name="sharedKey">Общий симметричный ключ для расшифровки сессионного ключа.</param>
+            <returns>Массив байт, который содержит сессионный ключ.</returns>
+            <remarks>Как правило сессионный ключ используется для шифрования данных и в свою очередь так же шифруется.</remarks>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.DecryptKey(System.Byte[],System.Security.Cryptography.RSA,System.Boolean)">
+            <summary>
+            Расшифровывает сессионный ключ с помощью указанного асимметричного ключа RSA.
+            </summary>
+            <param name="keyData">Массив байт, содержащий зашифрованный сессионный ключ.</param>
+            <param name="privateKey">Закрытый ключ RSA для расшифровки сессионного ключа.</param>
+            <param name="useOaep">Значение, указывающее, следует ли использовать заполнение OAEP (Optimal Asymmetric Encryption Padding).</param>
+            <returns>Массив байт, который содержит сессионный ключ.</returns>
+            <remarks>Как правило сессионный ключ используется для шифрования данных и в свою очередь так же шифруется.</remarks>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.DecryptKey(System.Byte[],GostCryptography.Cryptography.Gost3410AsymmetricAlgorithmBase)">
+            <summary>
+            Расшифровывает сессионный ключ с помощью указанного асимметричного ключа ГОСТ Р 34.10.
+            </summary>
+            <param name="keyData">Массив байт, содержащий зашифрованный сессионный ключ.</param>
+            <param name="privateKey">Закрытый ключ ГОСТ Р 34.10 для расшифровки сессионного ключа.</param>
+            <returns>Сессионный ключ.</returns>
+            <remarks>Как правило сессионный ключ используется для шифрования данных и в свою очередь так же шифруется.</remarks>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.ReplaceData(System.Xml.XmlElement,System.Byte[])">
+            <summary>
+            Заменяет указанный зашифрованный XML-элемент его расшифрованным представлением.
+            </summary>
+            <param name="element">Заменяемый зашифрованный XML-элемент.</param>
+            <param name="decryptedData">Расшифрованное представление XML-элемента.</param>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.ReplaceElement(System.Xml.XmlElement,System.Security.Cryptography.Xml.EncryptedData,System.Boolean)">
+            <summary>
+            Заменяет указанный XML-элемент его зашифрованным представлением.
+            </summary>
+            <param name="element">Заменяемый XML-элемент.</param>
+            <param name="encryptedData">Зашифрованное представление XML-элемента.</param>
+            <param name="content">Значение true для замены только содержимого элемента; значение false для замены всего элемента.</param>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.GetIdElement(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Возвращает XML-элемент с указанным идентификатором.
+            </summary>
+            <param name="document">Документ для поиска идентификатора XML-элемента.</param>
+            <param name="idValue">Значение идентификатора XML-элемента.</param>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.AddKeyNameMapping(System.String,System.Object)">
+            <summary>
+            Сопоставляет имя ключа шифрования со значением.
+            </summary>
+            <param name="keyName">Имя ключа шифрования.</param>
+            <param name="keyObject">Значение ключа шифрования.</param>
+        </member>
+        <member name="M:GostCryptography.Xml.GostEncryptedXml.ClearKeyNameMappings">
+            <summary>
+            Сбрасывает все сопоставления между именами и ключами шифрования.
+            </summary>
+        </member>
+        <member name="T:GostCryptography.Xml.GostSignedXml">
+            <summary>
+            Объект для работы с подписями XML по ГОСТ 34.10.
+            </summary>
+            <remarks>
+            Данный класс реализует стандарт XML-DSig с использованием ГОСТ 34.10. Стандарт XML-DSig разработан консорциумом W3C
+            и определяет рекомендации по формированию подписанных сообщений в формате XML. Фактически XML-DSig решает те же вопросы,
+            что и CMS/PKCS#7.  Основное отличие в том, что в CMS/PKCS#7 данные хранятся в структурах, сформированных в соответствии 
+            с разметкой ANS.1 (фактически, бинарные данные), а в XML-DSig данные хранятся в текстовом формате в соответствии с правилами
+            документа "XML Signature Syntax and Processing". Основное применение XML-DSig - это XML-ориентированные протоколы, например,
+            Web- и SOAP-сервисы.
+            </remarks>
+        </member>
+        <member name="F:GostCryptography.Xml.GostSignedXml.XmlDsigGost3410Url">
+            <summary>
+            Наименование алгоритма цифровой подписи по ГОСТ Р 34.10.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Xml.GostSignedXml.XmlDsigGost3410ObsoleteUrl">
+            <summary>
+            Устаревшее наименование алгоритма цифровой подписи по ГОСТ Р 34.10.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Xml.GostSignedXml.XmlDsigGost3411Url">
+            <summary>
+            Наименование алгоритма алгоритма хэширования по ГОСТ Р 34.11.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Xml.GostSignedXml.XmlDsigGost3411ObsoleteUrl">
+            <summary>
+            Устаревшее наименование алгоритма алгоритма хэширования по ГОСТ Р 34.11.
+            </summary>
+        </member>
+        <member name="F:GostCryptography.Xml.GostSignedXml.XmlDsigGost3411HmacUrl">
+            <summary>
+            Наименование алгоритма алгоритма хэширования HMAC по ГОСТ Р 34.11.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Xml.GostSignedXml.SignedInfo">
+            <summary>
+            Информация об алгоритмах нормализации и подписи данных.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Xml.GostSignedXml.KeyInfo">
+            <summary>
+            Информация о ключе цифровой подписи.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Xml.GostSignedXml.SigningKey">
+            <summary>
+            Ключ цифровой подписи.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Xml.GostSignedXml.SetSigningCertificate(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Устанавливает сертификат для вычисления цифровой подписи.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Xml.GostSignedXml.AddReference(System.Security.Cryptography.Xml.Reference)">
+            <summary>
+            Добавляет информацию о методе хэширования.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Xml.GostSignedXml.ComputeSignature">
+            <summary>
+            Вычисляет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Xml.GostSignedXml.CheckSignature">
+            <summary>
+            Проверяет цифровую подпись.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Xml.GostSignedXml.CheckSignature(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+            Проверяет цифровую подпись.
+            </summary>
+            <param name="publicKey">Ключ для проверки цифровой подписи.</param>
+        </member>
+        <member name="M:GostCryptography.Xml.GostSignedXml.LoadXml(System.Xml.XmlElement)">
+            <summary>
+            Загружает состояние из <see cref="T:System.Xml.XmlElement"/>.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Xml.GostSignedXml.GetXml">
+            <summary>
+            Возвращает состояние в <see cref="T:System.Xml.XmlElement"/>.
+            </summary>
+        </member>
+        <member name="P:GostCryptography.Xml.GostSignedXml.GetIdElementHandler">
+            <summary>
+            Обработчик для перекрытия метода <see cref="M:GostCryptography.Xml.GostSignedXml.GetIdElement(System.Xml.XmlDocument,System.String)"/>.
+            </summary>
+        </member>
+        <member name="M:GostCryptography.Xml.GostSignedXml.GetIdElement(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Возвращает XML-элемент с указанным идентификатором.
+            </summary>
+            <param name="document">Документ для поиска идентификатора элемента.</param>
+            <param name="idValue">Значение идентификатора элемента.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.fss.ru/integration/types/fault/v01" elementFormDefault="qualified" targetNamespace="http://www.fss.ru/integration/types/fault/v01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="internalFault" type="tns:InternalFault" />
+  <xs:complexType name="InternalFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CommonFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="uuid" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DigitalSignFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DecryptFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TmsFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PovdBusinessFaultType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CommonFault" />
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
